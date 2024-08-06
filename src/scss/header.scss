@@ -5,7 +5,8 @@
 .header__wrapper {
 	position: relative;
 	z-index: 5;
-	padding: rem(16) 0;
+	@include adaptiveValue("padding-top", 16, 8);
+	@include adaptiveValue("padding-bottom", 16, 8);
 	background-color: #1F1D21;
 	box-shadow: 0 0 rem(13) rgba(0, 0, 0, 0.5);
 }
@@ -23,12 +24,35 @@
 .main-header {
 	display: flex;
 	align-items: center;
+	ul {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		@media (max-width: $tablet){
+			display: none;
+		}
+		a {
+			font-family: 'Gilroy', serif;
+			font-size: rem(10);
+			font-weight: 500;
+			line-height: math.div(10, 12.13);
+			letter-spacing: 0.04em;
+			padding: rem(2);
+			@include adaptiveValue("margin-left", 36, 15);
+			color: #fff;
+			text-transform: uppercase;
+			transition: $mainTransition;
+			@media (any-hover: hover){
+				 &:hover { 
+				 opacity: 0.7; 
+			  } 
+			}
+		}
+	}
 }
 
 .logo {
-	// display: flex;
-	// justify-content: center;
-	// align-items: center;
 	overflow: hidden;
 	img {
 		width: 100%;
@@ -36,38 +60,10 @@
 	}
 }
 .main-header__logo {
-	flex: 0 rem(166);
+	@include adaptiveValue("width", 177, 90);
 	height: auto;
 }
-.main-header__menu {
-}
-.menu-header {
-	display: flex;
-	align-items: center;
-	flex-wrap: wrap;
-	justify-content: flex-end;
-	a {
-		font-family: 'Gilroy', serif;
-		font-size: rem(10);
-		font-weight: 500;
-		line-height: math.div(10, 12.13);
-		letter-spacing: 0.04em;
-		padding: rem(2);
-		@include adaptiveValue("margin-left", 36, 15);
-		color: #fff;
-		text-transform: uppercase;
-		transition: $mainTransition;
-		@media (any-hover: hover){
-			 &:hover { 
-			 opacity: 0.7; 
-		  } 
-		}
-	}
-}
-.menu-header__item {
-}
-.menu-header__link {
-}
+
 .header__actions {
 	justify-content: flex-end;
 	flex: 1 1 auto;
@@ -81,9 +77,21 @@
 	display: grid; 
 	grid-template-columns: rem(137) 1fr; 
 	gap: rem(10);
+	@media (max-width: $mobile) {
+		grid-template-columns: 1fr; 
+	}
 }
 .actions-header__btn {
 	@include adaptiveValue("font-size", 14, 10);
+	@include adaptiveValue("padding-top", 13, 10);
+	@include adaptiveValue("padding-right", 16, 10);
+	@include adaptiveValue("padding-bottom", 13, 10);
+	@include adaptiveValue("padding-left", 16, 10);
+	@media (max-width: $tabletSmall) {
+		&:nth-child(2)	{
+			display: none;
+		}
+	}
 }
 .btn {
 }
@@ -123,7 +131,7 @@
 	.select__options {
 		font-family: 'Gilroy', serif;
 		position: absolute;
-		top: 29px;
+		top: rem(29);
 		font-family: 'Gilroy', serif;
 		font-size: rem(12);
 		font-weight: 500;
@@ -145,17 +153,14 @@
 		color: inherit;
 	}
 }
-.choice-header__burger {
-}
-.icon-menu {
-}
 //========================================================================================================================================================
 
 .header__box {
 	position: absolute;
-	top: rem(70);
+	@include adaptiveValue("top", 70, 50);
 	right: 0;
-	width: 19%;
+	max-width: rem(366);
+	width: 100%;
 	height: 100vh;
 	transition: $mainTransition;
 	transform: translateX(100%);
@@ -170,7 +175,7 @@
 	flex-direction: column;
 	align-items: flex-start;
 	@include adaptiveValue("gap", 30, 10);
-	padding: 60px 0 0 0;
+	@include adaptiveValue("padding-top", 60, 15);
 	background-color: #d0d0d0;
 }
 .box-header__body {
@@ -179,57 +184,52 @@
 	flex: 1 1 auto;
 }
 .body-box-header {
-
-}
-.body-box-header__menu {
-	padding: 10px 33px 10px 33px;
-}
-.menu-box {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: rem(20);
-	width: 100%;
-	li {
-		width: 100%;
-	}
-	a {
+	ul {
 		display: flex;
-		font-family: 'Bebas', serif;
-		font-size: rem(35);
-		font-weight: 700;
-		line-height: math.div(35, 35);
-		letter-spacing: 0.1em;
-		color: #858486;
-		text-transform: uppercase;
-		transition: $mainTransition;
-		@media (any-hover: hover){
-			 &:hover { 
-				color: #1F1D21;
-		  } 
+		flex-direction: column;
+		align-items: flex-start;
+		@include adaptiveValue("gap", 20, 8);
+		@include adaptiveValue("padding-top", 10, 6);
+		@include adaptiveValue("padding-left", 33, 15);
+		@include adaptiveValue("padding-right", 33, 15);
+		@include adaptiveValue("padding-bottom", 10, 6);
+		width: 100%;
+		li {
+			width: 100%;
+		}
+		a {
+			display: flex;
+			font-family: 'Bebas', serif;
+			@include adaptiveValue("font-size", 35, 18);
+			font-weight: 700;
+			line-height: math.div(35, 35);
+			letter-spacing: 0.1em;
+			color: #858486;
+			text-transform: uppercase;
+			transition: $mainTransition;
+			@media (any-hover: hover){
+				 &:hover { 
+					color: #1F1D21;
+			  } 
+			}
 		}
 	}
 }
-.menu-box__item {
 
-}
-.menu-box__link {
-
-}
-.box-header__footer {
-}
 .footer-box-header {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	width: 100%;
 }
+.box-header__footer {
+}
 .box-header__buttons {
 	display: flex;
 	flex-direction: column;
 	gap: rem(10);
 	width: 100%;
-	padding: 10px;
+	padding: rem(10);
 }
 .box-header__btn {
 	color: rgba(255, 255, 255, 0.6);
@@ -240,24 +240,25 @@
 	  } 
 	}
 }
-.btn {
-}
 .box-header__social {
 }
 .social-box-header {
 	width: 100%;
-	padding: 30px 30px 110px 30px;
+	@include adaptiveValue("padding-top", 30, 20);
+	@include adaptiveValue("padding-right", 30, 10);
+	@include adaptiveValue("padding-bottom", 110, 75);
+	@include adaptiveValue("padding-left", 30, 10);
 	background-color: #d9d9d9;
 }
 .social-box-header__title {
-	font-size: 30px;
+	@include adaptiveValue("font-size", 30, 23);
 	font-weight: 700;
-	line-height: 30px;
+	line-height: math.div(30, 30);
 	text-align: center;
 	color: #1F1D21;
 	text-transform: uppercase;
 	&:not(:last-child){
-		margin-bottom: rem(23);
+		margin-bottom: em(23, 30);
 	}
 }
 .social-box-header__icons {
@@ -273,39 +274,36 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 30px;
+	@include adaptiveValue("height", 30, 20);
 	overflow: hidden;
 		svg {
 			width: 100%;
 			height: 100%;
 		}
 }
-.icon-social--youtube {
-	flex: 0 0 40px;
-}
 //====================================================================================================
 
 // Анимация header scroll
-.header {
-	@media (min-width: 1025px) {
-		transform: translateY(0);
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		transition: all 0.4s ease 0.1s;
-	}
-	&._header-scroll {
-		transform: translateY(-200%);
-		width: 100%;
-		background-color: #fff;
-		box-shadow: 0 0 rem(5) rgba(0, 0, 0, 0.5); 
-	}
-	&._header-show {
-		top: 0%;
-		transform: translateY(0);
-	}
-}
+// .header {
+// 	@media (min-width: 1025px) {
+// 		transform: translateY(0);
+// 		position: fixed;
+// 		top: 0;
+// 		left: 0;
+// 		width: 100%;
+// 		transition: all 0.4s ease 0.1s;
+// 	}
+// 	&._header-scroll {
+// 		transform: translateY(-200%);
+// 		width: 100%;
+// 		background-color: #fff;
+// 		box-shadow: 0 0 rem(5) rgba(0, 0, 0, 0.5); 
+// 	}
+// 	&._header-show {
+// 		top: 0%;
+// 		transform: translateY(0);
+// 	}
+// }
 
 // Убираем скачок при блокировке 
 // .lock .header {
@@ -330,17 +328,17 @@
 		&::after {
 			content: "";
 			transition: $mainTransition;
-			left: 0px;
+			left: 0;
 			position: absolute;
 			width: 100%;
 			height: rem(2);
 			background-color: #605f61;
 		}
 		&::before {
-			top: 0px;
+			top: 0;
 		}
 		&::after {
-			bottom: 0px;
+			bottom: 0;
 		}
 		span {
 			top: calc(50% - rem(1));
