@@ -18,14 +18,12 @@ $fontSize: rem(16); // где 14(px) - размер шрифта по умолч
 
 
 // Основные цвета
-$mainBgColor: #fbfbfb;
-$mainColor: #020020; // Цвет шрифта по умолчанию   
-$blueColor: #120B8D;
-$redColor: #FF2E00;
-$greenColor: #00BF36;
-$darkColor: #02002080;
-$lightGrey: #F0F2F8;
-$mediumGrey: #120B8D33;
+$mainColor: #020020; 
+$greyColor: rgba(255, 255, 255, 0.3);
+$mainBgColor: #D9D9D9;
+$redColor: #E13239; 
+
+
 
 // Анимации
 $mainTransition: all 0.4s ease 0s; // Главная анимация
@@ -68,6 +66,7 @@ $mobileSmall: em(374.98);
 @import "base/null";
 
 body {
+	background-color: $mainBgColor;
 	// Скролл заблокирован
 	.lock & {
 		overflow: hidden;
@@ -153,3 +152,11 @@ body {
 
 // Подключение стилей отдельных страниц
 @import "home";
+//========================================================================================================================================================
+
+.page__first-screen {
+	display: flex;
+	@include adaptiveValue("min-height", 912, 250);
+	@include adaptiveValue("padding-top", 150, 35);
+	@include adaptiveValue("padding-bottom", 150, 60);
+}

@@ -1,3 +1,130 @@
 //====================================================================================================
-
+.first-screen {
+	position: relative;
+	display: flex;
+	border-top-right-radius: 0 0 ;
+	background-repeat: no-repeat;
+	background-size: cover;
+	&::before{
+		content:''; 
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #00000065;
+	}
+}
+.first-screen__container {
+	width: 100%;
+}
+.first-screen__inner {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	gap: rem(10);
+	height: 100%;
+}
+.first-screen__img-ibg {
+	position: relative;
+	z-index: 1;
+	max-width: rem(793);
+	padding-bottom: 16.5%;
+	width: 100%;
+	overflow: hidden;
+	img {
+		object-fit: contain;
+	}
+}
+.first-screen__title {
+	position: relative;
+	z-index: 1;
+	font-family: 'Gilroy', serif;
+	@include adaptiveValue("font-size", 32, 16);
+	font-weight: 700;
+	line-height: math.div(34, 32);
+	text-align: center;
+	color: rgba(255, 255, 255, 0.45);
+}
+.first-screen__actions {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: rem(15);
+	font-family: 'Bebas', serif;
+	@include adaptiveValue("font-size", 32, 12);
+	font-weight: 700;
+	line-height: math.div(32, 32);
+	letter-spacing: 0.1em;
+	text-align: center;
+	color: rgba(255, 255, 255, 0.35);
+	transition: $mainTransition;
+	@media (any-hover: hover){
+		 &:hover { 
+		 color: #fff; 
+	  } 
+	}
+	span {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@include adaptiveValue("width", 158, 80);
+		@include adaptiveValue("height", 82, 35);
+		overflow: hidden;
+		background: rgba(255, 255, 255, 0.3);
+	}
+	svg {
+		@include adaptiveValue("width", 82, 50);
+		height: 100%;
+	}
+}
+.first-screen__btn {
+	position: absolute;
+	bottom: -50px;
+	@include adaptiveValue("bottom", -50, -20);
+	font-family: 'Bebas', serif;
+	@include adaptiveValue("font-size", 45, 18);
+	font-weight: 700;
+	line-height: math.div(45, 45);
+	letter-spacing: 0.1em;
+	@include adaptiveValue("padding", 25, 10);
+	@include adaptiveValue("min-width", 522, 170);
+	&::before{
+		content:''; 
+		position: absolute;
+		top: 0;
+		width: 123%;
+		height: 100%;
+		background: rgba(225, 50, 57, 0.3);
+		transition: $mainTransition;
+	}
+	&::after{
+		content:''; 
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 100%;
+		height: 100%;
+		box-shadow: 0 0 rem(35) rgba(225, 50, 57, 0.8);
+		transition: $mainTransition;
+	}
+	@media (any-hover: hover){
+		 &:hover { 
+			&::before{
+				width: 100%;
+			}
+			&::after{
+				width: 100%;
+				height: 100%;
+				box-shadow: 0 0 rem(35) rgba(225, 50, 57, 0.3);
+			}
+	  } 
+	}
+}
+.btn {
+ 
+}
 //====================================================================================================
