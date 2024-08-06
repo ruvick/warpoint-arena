@@ -463,12 +463,29 @@ export function menuInit() {
 				document.documentElement.classList.toggle("menu-open");
 			}
 		});
-	};
+	}
+
+	// Закрытие меню при клике вне элемента с классом header__box
+	document.addEventListener("click", function (e) {
+		const headerBox = document.querySelector(".header__box");
+		if (!headerBox.contains(e.target) && !iconMenu.contains(e.target)) {
+			menuClose();
+		}
+	});
+
+	// Закрытие меню при нажатии клавиши ESC
+	document.addEventListener("keydown", function (e) {
+		if (e.key === "Escape" && document.documentElement.classList.contains("menu-open")) {
+			menuClose();
+		}
+	});
 }
+
 export function menuOpen() {
 	bodyLock();
 	document.documentElement.classList.add("menu-open");
 }
+
 export function menuClose() {
 	bodyUnlock();
 	document.documentElement.classList.remove("menu-open");
