@@ -13,6 +13,7 @@
 	line-height: math.div(14, 17.33);
 	letter-spacing: 0.1em;
 	text-align: center;	
+	text-transform: uppercase;
 	color: #fff;
 	background: #FFFFFF1A;
 	transition: $mainTransition;
@@ -25,5 +26,11 @@
 	}
 	&._btn-red {
 		background-color: #E13239;
+	}
+	&._btn-dark {
+		background-color: #1F1D21;
+	}
+	&._btn-grey {
+		background-color: #1F1D2166;
 	}
 } 
