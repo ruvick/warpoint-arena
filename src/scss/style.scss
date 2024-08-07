@@ -22,7 +22,7 @@ $mainColor: #020020;
 $greyColor: rgba(255, 255, 255, 0.3);
 $mainBgColor: #D9D9D9;
 $redColor: #E13239; 
-
+$opacity: 0.7; 
 
 
 // Анимации
@@ -154,9 +154,18 @@ body {
 @import "home";
 //========================================================================================================================================================
 
-.page__first-screen {
-	display: flex;
-	@include adaptiveValue("min-height", 912, 250);
-	@include adaptiveValue("padding-top", 150, 35);
-	@include adaptiveValue("padding-bottom", 150, 60);
+.page {
+	&_home {
+		
+	}
+	&__first-screen {
+		display: flex;
+		@include adaptiveValue("min-height", 912, 250);
+		@include adaptiveValue("padding-top", 150, 35);
+		@include adaptiveValue("padding-bottom", 150, 60);
+	}
+	&__info {
+		@include adaptiveValue("padding-top", 230, 80);
+		@include adaptiveValue("padding-bottom", 120, 50);
+	}
 }
