@@ -50,7 +50,7 @@ $containerWidth: $maxWidthContainer + $containerPadding;
 
 // Брейк-поинты
 $pc: em($containerWidth); // ПК, ноутбуки, некоторые планшеты в горизонтальном положении
-$tabletBig: em(1023.98); 
+$tabletBig: em(1024); 
 $tablet: em(991.98); 
 $tabletSmall: em(768);  
 $mobileBig: em(539.98); 
@@ -167,6 +167,14 @@ body {
 	&__info {
 		@include adaptiveValue("padding-top", 230, 80);
 		@include adaptiveValue("padding-bottom", 120, 50);
+	}
+	&__battle {
+		@include adaptiveValue("padding-top", 120, 35);
+		@include adaptiveValue("padding-bottom", 133, 35);
+	}
+	&__faq {
+		@include adaptiveValue("padding-top", 330, 35);
+		@include adaptiveValue("padding-bottom", 220, 35);
 	}
 	&__social {
 		@include adaptiveValue("padding-top", 122, 35);
