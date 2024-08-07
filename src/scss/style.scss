@@ -168,4 +168,8 @@ body {
 		@include adaptiveValue("padding-top", 230, 80);
 		@include adaptiveValue("padding-bottom", 120, 50);
 	}
+	&__social {
+		@include adaptiveValue("padding-top", 122, 35);
+		@include adaptiveValue("padding-bottom", 118, 35);
+	}
 }
