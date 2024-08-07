@@ -4,56 +4,71 @@
 // Блок со спойлерами
 .spollers {
 	display: grid;
-	gap: 15px;
+	gap: rem(10);
 }
 // Спойлер
 .spollers__item {
 	font-size: rem(20);
-	&:not(:last-child) {
-		margin-bottom: em(30, 20);
-	}
+	// &:not(:last-child) {
+	// 	margin-bottom: em(30, 20); 
+	// }
 }
 // Заголовок спойлера
 .spollers__title {
 	width: 100%;
+	font-family: 'Bebas', serif;
+	@include adaptiveValue("font-size", 35, 20);
+	font-weight: 700;
+	line-height: math.div(35, 35);
+	letter-spacing: 0.1em;
 	cursor: default;
 	text-align: left;
-	border: 1px solid #eee;
-	padding: rem(10) rem(15);
-	border-radius: rem(5);
+	background-color: #E4E4E4;
+	@include adaptiveValue("padding-top", 30, 15);
+	@include adaptiveValue("padding-right", 55, 35);
+	@include adaptiveValue("padding-bottom", 20, 15);
+	@include adaptiveValue("padding-left", 33, 15);
 	position: relative;
 	._spoller-init & {
 		cursor: pointer;
-		&::before,
+		// &::before,
 		&::after {
 			content: "";
 			position: absolute;
-			right: 10px;
+			@include adaptiveValue("right", 20, 10);
 			top: 50%;
-			background-color: #000;
-			height: 2px;
-			width: 15px;
+			@include adaptiveValue("height", 45, 15);
+			@include adaptiveValue("width", 45, 15);
 			transition: transform 0.5s ease 0s;
-		}
-		&::before {
-			transform: translate(-75%, -50%) rotate(40deg);
+			background: url('../img/icons/arrow-sm.svg') center no-repeat;
+			background-size: contain;
 		}
 		&::after {
-			transform: translate(0, -50%) rotate(-40deg);
+			transform: translate(0, -50%) rotate(0deg);
 		}
 		&._spoller-active {
-			&::before {
-				transform: translateX(-75%) rotate(-40deg);
-			}
 			&::after {
-				transform: rotate(40deg);
+				transform: translateY(-50%) rotate(90deg);
 			}
 		}
 	}
 }
 // Контент спойлера
 .spollers__body {
-	padding: rem(20);
-	border-radius: rem(5);
-	border: 1px solid #eee;
+	font-family: 'Gilroy', serif;
+	font-size: rem(14);
+	font-weight: 500;
+	line-height: math.div(16.98, 14);
+	color: #fff;
+	padding: 55px 34px;
+	@include adaptiveValue("padding-top", 55, 20);
+	@include adaptiveValue("padding-right", 34, 15);
+	@include adaptiveValue("padding-bottom", 55, 20);
+	@include adaptiveValue("padding-left", 34, 15);
+	background-color: #1F1D21;
+	p {
+		&:not(:last-child){
+			margin-bottom: em(15, 14);
+		}
+	}
 }
