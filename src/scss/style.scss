@@ -184,4 +184,15 @@ body {
 		@include adaptiveValue("padding-top", 122, 35);
 		@include adaptiveValue("padding-bottom", 118, 35);
 	}
+	&__header {
+		@include adaptiveValue("padding-top", 60, 35);
+		// @include adaptiveValue("padding-bottom", 74, 50);
+	}
+}
+
+.page_news {
+	.page__news {
+		@include adaptiveValue("padding-top", 74, 35);
+		@include adaptiveValue("padding-bottom", 220, 55);
+	}
 }

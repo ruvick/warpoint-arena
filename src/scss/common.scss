@@ -3,6 +3,95 @@
 .title {
 	text-align: center;
 }
+//========================================================================================================================================================
+
+.header-page {
+
+	// .header-page__container
+	&__container {
+	}
+
+	// .header-page__title-block
+	&__title-block {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		@include adaptiveValue("gap", 40, 10);
+		@media (max-width: $mobileBig ){
+			  flex-direction: column;
+			  align-items: flex-start;
+		}
+	}
+
+	// .header-page__title
+	&__title {
+		@include adaptiveValue("font-size", 72, 33);
+		font-weight: 700;
+		line-height: math.div(72, 72);
+		color: #1F1D21;
+	}
+
+	// .header-page__actions
+	&__actions {
+		flex: 1 1 auto;
+		margin-top: rem(-8);
+	}
+}
+
+.actions-header-page {
+	display: grid; 
+	grid-template-columns: repeat(auto-fill, minmax(rem(300), 327px)); 
+	gap: rem(12);
+	@media (max-width: $mobileBig ){
+		width: 100%;
+ 	}
+	@media (max-width: $mobile){
+		grid-template-columns: 1fr; 
+	}
+
+	// .actions-header-page__select
+	&__select {
+		.select__title {
+			color: inherit;
+			text-align: left;
+			font-family: 'Gilroy', serif;
+			@include adaptiveValue("font-size", 20, 16);
+			font-weight: 500;
+			line-height: math.div(24.26, 20);
+			color: #cecece;
+			border: none;
+			background: #aeaeae;
+			cursor: pointer;
+			padding: rem(6.5) rem(18);
+			width: 100%;
+			border-radius: 0;
+	  }
+	}
+	.select__options {
+		color: #cecece;
+		position: absolute;
+		top: rem(53);
+		font-family: 'Gilroy', serif;
+		border-radius: 0;
+		min-width: 100%;
+		left: 0;
+		background: #aeaeae;
+		border-top: 0;
+		border: none;
+		border-top: 0;
+		padding: 0
+  }
+	.select__option {
+		font-family: 'Gilroy', serif;
+		width: 100%;
+		display: block;
+		text-align: left;
+		cursor: pointer;
+		padding: rem(10) rem(15);
+		color: inherit;
+	}
+}
+//========================================================================================================================================================
 
 // Свойсьво Blur 
 .backdrop-filter {
