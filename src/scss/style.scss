@@ -199,6 +199,11 @@ body {
 		@include adaptiveValue("padding-bottom", 100, 55);	
 	}
 	&__cookies {
+		position: fixed;
+		bottom: 5%;
+		left: 0;
+		width: 100%;
+		z-index: 5;
 		@include adaptiveValue("padding-top", 52, 30);
 		@include adaptiveValue("padding-bottom", 18, 30);	
 	}
