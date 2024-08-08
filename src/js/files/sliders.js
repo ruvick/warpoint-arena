@@ -7,7 +7,7 @@
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
-import Swiper, { Navigation } from 'swiper';
+import Swiper, { Navigation, Pagination } from 'swiper';
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -45,11 +45,11 @@ function initSliders() {
 	bildSliders();
 
 	// Перечень слайдеров
-	if (document.querySelector('.swiper')) {
+	if (document.querySelector('.slider-new-detail__swiper')) {
 		new Swiper('.swiper', {
 			// Подключаем модули слайдера
 			// для конкретного случая
-			//modules: [Navigation, Pagination],
+			modules: [Navigation, Pagination],
 			/*
 			effect: 'fade',
 			autoplay: {
@@ -59,17 +59,17 @@ function initSliders() {
 			*/
 			observer: true,
 			observeParents: true,
-			slidesPerView: 1,
-			// slidesPerView: 'auto', // Чтобы слайдер сам не указывал ширину слайдам. Будем управлять в стилях.
-			spaceBetween: 0,
+			slidesPerView: 3,
+			spaceBetween: 17,
 			autoHeight: true,
 			speed: 800,
-			parallax: true,
+			centeredSlides: true,
+			// parallax: true,
 			//touchRatio: 0,
 			//simulateTouch: false,
-			//loop: true,
+			loop: true,
 			//preloadImages: false,
-			//lazy: true,
+			// lazy: true,
 			// Dotts
 			//pagination: {
 			//	el: '.slider-quality__pagging',
@@ -77,8 +77,8 @@ function initSliders() {
 			//},
 			// Arrows
 			navigation: {
-				nextEl: '.slider-rooms .slider-arrow_next',
-				prevEl: '.slider-rooms .slider-arrow_prev',
+				nextEl: '.slider-new-detail__buttons .slider-arrow_next',
+				prevEl: '.slider-new-detail__buttons .slider-arrow_prev',
 			},
 			/*
 			breakpoints: {
