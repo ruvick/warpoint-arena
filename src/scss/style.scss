@@ -198,6 +198,10 @@ body {
 		@include adaptiveValue("padding-top", 30, 35);
 		@include adaptiveValue("padding-bottom", 100, 55);	
 	}
+	&__cookies {
+		@include adaptiveValue("padding-top", 52, 30);
+		@include adaptiveValue("padding-bottom", 18, 30);	
+	}
 }
 
 .page_news {
