@@ -7,8 +7,11 @@
 
 .header-page {
 
-	// .header-page__container
+	&__inner {
+
+	}
 	&__container {
+
 	}
 
 	// .header-page__title-block
@@ -38,6 +41,35 @@
 	}
 }
 
+.page_new {
+	.header-page {
+		&__container {
+			max-width: rem(1223);
+		}
+		&__inner {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			@include adaptiveValue("gap", 50, 30);
+		}
+		&__title-block {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex: 1 1 auto;
+		}
+		&__title {
+			max-width: rem(596);
+			width: 100%;
+			font-family: 'Gilroy', serif;
+			@include adaptiveValue("font-size", 35, 26);
+			font-weight: 700;
+			line-height: math.div(43.33, 35);
+			text-align: center;
+		}
+	}
+}
+
 .actions-header-page {
 	display: grid; 
 	grid-template-columns: repeat(auto-fill, minmax(rem(300), 327px)); 
@@ -62,7 +94,7 @@
 			border: none;
 			background: #aeaeae;
 			cursor: pointer;
-			padding: rem(6.5) rem(18);
+			padding: rem(6.5) rem(10) rem(6.5) rem(18);
 			width: 100%;
 			border-radius: 0;
 	  }
@@ -70,7 +102,7 @@
 	.select__options {
 		color: #cecece;
 		position: absolute;
-		top: rem(53);
+		top: rem(45);
 		font-family: 'Gilroy', serif;
 		border-radius: 0;
 		min-width: 100%;
@@ -79,7 +111,8 @@
 		border-top: 0;
 		border: none;
 		border-top: 0;
-		padding: 0
+		padding: 0;
+		border: rem(1) solid #aeaeae;;
   }
 	.select__option {
 		font-family: 'Gilroy', serif;
@@ -89,7 +122,48 @@
 		cursor: pointer;
 		padding: rem(10) rem(15);
 		color: inherit;
+		@media (any-hover: hover){
+			 &:hover { 
+				color: #1F1D21;
+		  } 
+		}
 	}
+	.select__value {
+		height: rem(30);
+		padding: 0px rem(5);
+  }
+	.select__value:before {
+		content: "";
+		flex: 0 0 rem(13);
+		height: rem(13);
+		transition: all 0.3s ease 0s;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		align-self: center;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: 100%;
+		background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxMiAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDdMLTYuNTI1MzNlLTA3IDEzLjkyODJMLTQuNjg0OTdlLTA4IDAuMDcxNzk2NEwxMiA3WiIgZmlsbD0iI0Q5RDlEOSIvPgo8L3N2Zz4K');
+  }
+  ._select-open .select__value:before {
+		transform: rotate(90deg);
+	}
+}
+//========================================================================================================================================================
+
+.date-page {
+	display: inline-flex;
+	align-items: center;
+	max-width: rem(104);
+	width: 100%;
+	font-family: 'Gilroy', serif;
+	@include adaptiveValue("font-size", 12, 10);
+	font-weight: 500;
+	line-height: math.div(14.56, 12);
+	color: rgba(0, 0, 0, 0.3);
+	padding: 0.25rem 0.625rem;
+	background-color: #AEAEAE;
 }
 //========================================================================================================================================================
 

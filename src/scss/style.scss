@@ -54,7 +54,7 @@ $tabletBig: em(1024);
 $tablet: em(991.98); 
 $tabletSmall: em(768);  
 $mobileBig: em(539.98); 
-$mobile: em(413.98);
+$mobile: em(414);
 $mobileSmall: em(374.98); 
 
 // $pc: em($containerWidth); // ПК, ноутбуки, некоторые планшеты в горизонтальном положении
@@ -152,6 +152,8 @@ body {
 
 // Подключение стилей отдельных страниц
 @import "home";
+
+@import "new";
 //========================================================================================================================================================
 
 .page {
@@ -188,11 +190,26 @@ body {
 		@include adaptiveValue("padding-top", 60, 35);
 		// @include adaptiveValue("padding-bottom", 74, 50);
 	}
+	&__new {
+		@include adaptiveValue("padding-top", 40, 35);
+		@include adaptiveValue("padding-bottom", 78, 55);
+	}
+	&__other-news {
+		@include adaptiveValue("padding-top", 30, 35);
+		@include adaptiveValue("padding-bottom", 100, 55);	
+	}
 }
 
 .page_news {
 	.page__news {
 		@include adaptiveValue("padding-top", 74, 35);
 		@include adaptiveValue("padding-bottom", 220, 55);
+	}
+}
+
+.page_new {
+	.page__header {
+		@include adaptiveValue("padding-top", 20, 15);
+		@include adaptiveValue("padding-bottom", 38, 20);
 	}
 }
