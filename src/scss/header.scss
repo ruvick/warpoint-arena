@@ -19,6 +19,7 @@
 	@include adaptiveValue("gap", 60, 10);
 }
 .header__main {
+	flex: 1 1 auto;
 	justify-content: space-between;
 }
 .main-header {
