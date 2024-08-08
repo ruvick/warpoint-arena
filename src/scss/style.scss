@@ -191,8 +191,8 @@ body {
 		// @include adaptiveValue("padding-bottom", 74, 50);
 	}
 	&__new {
-		@include adaptiveValue("padding-top", 40, 35);
-		@include adaptiveValue("padding-bottom", 78, 55);
+		@include adaptiveValue("padding-top", 40, 25);
+		@include adaptiveValue("padding-bottom", 78, 35);
 	}
 	&__other-news {
 		@include adaptiveValue("padding-top", 30, 35);
