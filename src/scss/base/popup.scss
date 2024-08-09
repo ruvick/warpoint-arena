@@ -80,7 +80,7 @@ body.popup-show::after {
 			position: absolute;
 			top: 6%;
 			right: 3%;
-			z-index: 10;
+			z-index: 55;
 			@include adaptiveValue("width", 60, 25);
 			@include adaptiveValue("height", 60, 25);
 			svg {
@@ -176,6 +176,7 @@ body.popup-show::after {
 
 	// .slide-popup-maps__sticker
 	&__sticker {
+		display: inline-flex;
 		font-family: 'Gilroy', serif;
 		@include adaptiveValue("font-size", 16, 12);
 		font-weight: 500;
@@ -201,9 +202,47 @@ body.popup-show::after {
 
 	// .slide-popup-maps__footer
 	&__footer {
+		width: 100%;
 	}
 
 	// .slide-popup-maps__player
 	&__player {
+		position: relative;
+		z-index: 50;
+	}
+}
+.player-popup-maps {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: rem(385);
+	width: 100%;
+	// height: 216px;
+	&__img {
+		width: 100%;
+		height: 100%;
+		// padding-bottom: 30%;
+		overflow: hidden;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}
+.player-popup-maps__btn {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 140px;
+	height: 73px;
+	overflow: hidden;
+	svg {
+		width: 100%;
+		height: 100%;
 	}
 }
