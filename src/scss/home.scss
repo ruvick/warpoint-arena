@@ -847,9 +847,33 @@
 		&.swiper-slide-active {
 			&::before{
 				opacity: 0;
+				z-index: -1;
 			}
 		}
 	}
+	.slider-new-detail__buttons {
+		justify-content: center;
+	}
+	&__fraction {
+		.swiper-pagination-current {
+			font-family: 'Bebas', serif;
+			@include adaptiveValue("font-size", 80, 26);
+			font-weight: 700;
+			line-height: math.div(80, 80);
+			color: #989898;
+		}
+		.swiper-pagination-total {
+			display: none;
+		}
+	}
+	.slider-arrow svg path {
+		fill: #989898 !important;
+  }
+  @media (max-width: 48em) {
+	.slider-new-detail__buttons .slider-arrow {
+		display: flex;
+	}
+}
 }
 
 .slide-maps-game {
