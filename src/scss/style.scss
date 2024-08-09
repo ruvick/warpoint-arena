@@ -179,7 +179,7 @@ body {
 		@include adaptiveValue("padding-bottom", 40, 35);
 	}
 	&__heroes {
-		height: 2500px;
+		// height: 2500px;
 		@include adaptiveValue("padding-top", 120, 65);
 		// @include adaptiveValue("padding-bottom", 133, 65);
 	}

@@ -46,7 +46,7 @@ function initSliders() {
 
 	// Перечень слайдеров
 	if (document.querySelector('.slider-new-detail__swiper')) {
-		new Swiper('.swiper', {
+		new Swiper('.slider-new-detail__swiper', {
 			// Подключаем модули слайдера
 			// для конкретного случая
 			modules: [Navigation, Pagination],
@@ -115,7 +115,7 @@ function initSliders() {
 	}
 
 	if (document.querySelector('.main-maps-game__slider')) {
-		new Swiper('.swiper', {
+		new Swiper('.main-maps-game__slider', {
 			// Подключаем модули слайдера
 			// для конкретного случая
 			modules: [Navigation, Pagination],
@@ -177,6 +177,75 @@ function initSliders() {
 					spaceBetween: 16,
 				},
 			},
+			on: {
+
+			}
+		});
+	}
+
+	if (document.querySelector('.popup-maps__slider')) {
+		new Swiper('.popup-maps__slider', {
+			// Подключаем модули слайдера
+			// для конкретного случая
+			modules: [Navigation, Pagination],
+			/*
+			effect: 'fade',
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+			*/
+			observer: true,
+			observeParents: true,
+			slidesPerView: 1,
+			spaceBetween: 0,
+			// autoHeight: true,
+			speed: 1000,
+			// centeredSlides: true,
+			// parallax: true,
+			//touchRatio: 0,
+			//simulateTouch: false,
+			loop: true,
+			//preloadImages: false,
+			// lazy: true,
+			// Dotts
+			// pagination: {
+			// 	el: '.slider-new-detail__pagging',
+			// 	clickable: true,
+			// },
+			// Arrows
+			navigation: {
+				nextEl: '.slider-new-detail__buttons .slider-arrow_next',
+				prevEl: '.slider-new-detail__buttons .slider-arrow_prev',
+			},
+			// breakpoints: {
+			// 	375: {
+			// 		slidesPerView: 1.3,
+			// 		// autoHeight: true,
+			// 	},
+			// 	480: {
+			// 		slidesPerView: 1.8,
+			// 		spaceBetween: 10,
+			// 		// autoHeight: true,
+			// 	},
+			// 	540: {
+			// 		slidesPerView: 2.3,
+			// 		spaceBetween: 10,
+			// 		// autoHeight: true,
+			// 	},
+			// 	768: {
+			// 		slidesPerView: 2.3,
+			// 		spaceBetween: 10,
+			// 	},
+			// 	992: {
+			// 		slidesPerView: 2.8,
+			// 		spaceBetween: 10,
+			// 	},
+			// 	1024: {
+			// 		slidesPerView: 3,
+			// 		spaceBetween: 17,
+			// 	},
+			// },
 			on: {
 
 			}

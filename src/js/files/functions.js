@@ -466,12 +466,13 @@ export function menuInit() {
 	}
 
 	// Закрытие меню при клике вне элемента с классом header__box
-	document.addEventListener("click", function (e) {
-		const headerBox = document.querySelector(".header__box");
-		if (!headerBox.contains(e.target) && !iconMenu.contains(e.target)) {
-			menuClose();
-		}
-	});
+	// document.addEventListener("click", function (e) {
+	// 	const headerBox = document.querySelector(".header__box");
+	// 	const popup = document.querySelector(".popup");
+	// 	if (!headerBox.contains(e.target) && !iconMenu.contains(e.target)) {
+	// 		menuClose();
+	// 	}
+	// });
 
 	// Закрытие меню при нажатии клавиши ESC
 	document.addEventListener("keydown", function (e) {
