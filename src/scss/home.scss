@@ -840,7 +840,7 @@
 			right: 0;
 			bottom: 0;
 			background: inherit;
-			backdrop-filter: blur(5px);
+			background: linear-gradient(180deg, #1F1D21 0%, rgba(31, 29, 33, 0) 190%);
 			z-index: 5;
 			transition: $mainTransition;
 		}
