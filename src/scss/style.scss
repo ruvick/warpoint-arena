@@ -204,8 +204,13 @@ body {
 		left: 0;
 		width: 100%;
 		z-index: 5;
+		transform: scale(0);
+		transition: $mainTransition;
 		@include adaptiveValue("padding-top", 52, 30);
 		@include adaptiveValue("padding-bottom", 18, 30);	
+		&._active{
+			transform: scale(1);
+		}
 	}
 }
 
