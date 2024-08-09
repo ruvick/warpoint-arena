@@ -178,6 +178,10 @@ body {
 		@include adaptiveValue("padding-top", 120, 35);
 		@include adaptiveValue("padding-bottom", 133, 35);
 	}
+	&__maps-game {
+		@include adaptiveValue("padding-top", 135, 35);
+		@include adaptiveValue("padding-bottom", 70, 35);
+	}
 	&__news {
 		@include adaptiveValue("padding-top", 266, 55);
 		@include adaptiveValue("padding-bottom", 266, 55);
