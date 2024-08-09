@@ -170,6 +170,10 @@ body {
 		@include adaptiveValue("padding-top", 230, 80);
 		@include adaptiveValue("padding-bottom", 120, 50);
 	}
+	&__about-game {
+		@include adaptiveValue("padding-top", 152, 35);
+		@include adaptiveValue("padding-bottom", 114, 35);
+	}
 	&__battle {
 		@include adaptiveValue("padding-top", 120, 35);
 		@include adaptiveValue("padding-bottom", 133, 35);
