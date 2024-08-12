@@ -283,10 +283,10 @@ function initSliders() {
 			// 	clickable: true,
 			// },
 			// // Arrows
-			// navigation: {
-			// 	nextEl: '.slider-new-detail__buttons .slider-arrow_next',
-			// 	prevEl: '.slider-new-detail__buttons .slider-arrow_prev',
-			// },
+			navigation: {
+				nextEl: '.main-modes__buttons .slider-arrow_next',
+				prevEl: '.main-modes__buttons .slider-arrow_prev',
+			},
 			// breakpoints: {
 			// 	375: {
 			// 		slidesPerView: 1.3,

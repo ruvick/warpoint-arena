@@ -781,7 +781,8 @@
 .info-game {
 	position: relative;
 	background-color: #bcbcbc;
-	overflow: hidden;
+	// overflow: hidden;
+	z-index: 5;
 	&::before{
 		content:''; 
 		position: absolute;
@@ -948,6 +949,7 @@
 
 	// .arena-modes__main
 	&__main {
+		transform: translateY(130px);
 	}
 }
 
@@ -960,9 +962,19 @@
 		justify-content: center;
 	}
 
+	&__main {
+		position: relative;
+		max-width: rem(1130);
+		padding: 0 90px;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+
 	// .main-modes__slider
 	&__slider {
 		max-width: rem(936);
+		width: 100%;
 	}
 
 	// .main-modes__swiper
@@ -1061,7 +1073,14 @@
 			}
 	}
 }
-
+.main-modes__buttons {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 5;
+	justify-content: space-between;
+	width: 100%;
+}
 //========================================================================================================================================================
 
 .heroes {
