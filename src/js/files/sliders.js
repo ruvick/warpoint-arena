@@ -7,7 +7,7 @@
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
-import Swiper, { Navigation, Pagination } from 'swiper';
+import Swiper, { Navigation, Pagination, EffectFade, Thumbs, Controller } from 'swiper';
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -252,75 +252,55 @@ function initSliders() {
 		});
 	}
 
-	if (document.querySelector('.main-modes__slider')) {
-		new Swiper('.main-modes__slider', {
-			// Подключаем модули слайдера
-			// для конкретного случая
-			modules: [Navigation, Pagination],
-			/*
+	if (document.querySelector('.main-modes__slider') && document.querySelector('.thumbs-images__slider')) {
+		// Инициализация слайдера с миниатюрами
+		const thumbsSwiper = new Swiper('.thumbs-images__slider', {
+			modules: [Navigation, Pagination, EffectFade],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 3,
+			spaceBetween: 0,
+			speed: 1500,
+			// centeredSlides: true,
+			loop: true,
 			effect: 'fade',
-			autoplay: {
-				delay: 3000,
-				disableOnInteraction: false,
+			fadeEffect: {
+				crossFade: true
 			},
-			*/
+			slideToClickedSlide: true,
+			// другие настройки
+		});
+
+		// Инициализация основного слайдера
+		const mainSwiper = new Swiper('.main-modes__slider', {
+			modules: [Navigation, Pagination, Thumbs, Controller, EffectFade],
+			// effect: 'fade',
+			// fadeEffect: {
+			// 	crossFade: true
+			// },
 			observer: true,
 			observeParents: true,
 			slidesPerView: 1,
 			spaceBetween: 0,
-			// autoHeight: true,
 			speed: 1500,
 			centeredSlides: true,
-			// parallax: true,
-			//touchRatio: 0,
-			//simulateTouch: false,
 			loop: true,
-			//preloadImages: false,
-			// lazy: true,
-			// Dotts
-			// pagination: {
-			// 	el: '.slider-new-detail__pagging',
-			// 	clickable: true,
-			// },
-			// // Arrows
 			navigation: {
 				nextEl: '.main-modes__buttons .slider-arrow_next',
 				prevEl: '.main-modes__buttons .slider-arrow_prev',
 			},
-			// breakpoints: {
-			// 	375: {
-			// 		slidesPerView: 1.3,
-			// 		// autoHeight: true,
-			// 	},
-			// 	480: {
-			// 		slidesPerView: 1.8,
-			// 		spaceBetween: 10,
-			// 		// autoHeight: true,
-			// 	},
-			// 	540: {
-			// 		slidesPerView: 2.3,
-			// 		spaceBetween: 10,
-			// 		// autoHeight: true,
-			// 	},
-			// 	768: {
-			// 		slidesPerView: 2.3,
-			// 		spaceBetween: 10,
-			// 	},
-			// 	992: {
-			// 		slidesPerView: 2.8,
-			// 		spaceBetween: 10,
-			// 	},
-			// 	1024: {
-			// 		slidesPerView: 3,
-			// 		spaceBetween: 17,
-			// 	},
-			// },
-			on: {
-
-			}
+			thumbs: {
+				swiper: thumbsSwiper
+			},
+			controller: {
+				control: thumbsSwiper
+			},
+			// другие настройки
 		});
 	}
 }
+// }
+
 // Скролл на базе слайдера (по классу swiper_scroll для оболочки слайдера)
 function initSlidersScroll() {
 	// Добавление классов слайдера
