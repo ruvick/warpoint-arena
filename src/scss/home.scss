@@ -487,7 +487,7 @@
 	position: relative;
 	background-color: red;
 	background: url('../img/battle/battle-img-bg.jpg') 0 0 no-repeat;
-	background-size: cover;
+	background-size: cover !important;
 	// background-attachment: fixed;
 	overflow: hidden;
 
