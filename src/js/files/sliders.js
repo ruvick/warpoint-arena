@@ -46,7 +46,7 @@ function initSliders() {
 
 	// Перечень слайдеров
 	if (document.querySelector('.slider-new-detail__swiper')) {
-		new Swiper('.slider-new-detail__swiper', {
+		new Swiper('.swiper', {
 			// Подключаем модули слайдера
 			// для конкретного случая
 			modules: [Navigation, Pagination],
@@ -141,7 +141,7 @@ function initSliders() {
 			// lazy: true,
 			// Dotts
 			pagination: {
-				el: '.swiper-fraction',
+				el: '.main-maps-game__fraction',
 				type: 'fraction', // Используем фракции
 				clickable: true,
 				renderFraction: function (currentClass, totalClass) {
@@ -151,8 +151,8 @@ function initSliders() {
 			},
 			// Arrows
 			navigation: {
-				nextEl: '.slider-new-detail__buttons .slider-arrow_next',
-				prevEl: '.slider-new-detail__buttons .slider-arrow_prev',
+				nextEl: '.main-maps-game__buttons .slider-arrow_next',
+				prevEl: '.main-maps-game__buttons .slider-arrow_prev',
 			},
 			breakpoints: {
 				375: {
@@ -209,14 +209,14 @@ function initSliders() {
 			//preloadImages: false,
 			// lazy: true,
 			// Dotts
-			// pagination: {
-			// 	el: '.slider-new-detail__pagging',
-			// 	clickable: true,
-			// },
+			pagination: {
+				el: '.popup-maps__pagging',
+				clickable: true,
+			},
 			// Arrows
 			navigation: {
-				nextEl: '.slider-new-detail__buttons .slider-arrow_next',
-				prevEl: '.slider-new-detail__buttons .slider-arrow_prev',
+				nextEl: '.popup-maps__buttons .slider-arrow_next',
+				prevEl: '.popup-maps__buttons .slider-arrow_prev',
 			},
 			// breakpoints: {
 			// 	375: {

@@ -71,7 +71,7 @@ body.popup-show::after {
 			max-width: rem(1600);
 			display: flex;
 			border-radius: 0;
-			padding-bottom: 50.5%;
+			// padding-bottom: 50.5%;
 		}
 	
 		// .popup__close
@@ -93,7 +93,7 @@ body.popup-show::after {
 
 		// .popup-maps__slider
 		&__slider {
-			position: absolute;
+			// position: absolute;
 			top: 0;
 			left: 0;
 			width: 100%;
@@ -109,6 +109,9 @@ body.popup-show::after {
 		// .popup-maps__slide
 		&__slide {
 			position: relative;
+			@media (max-width: em(1440)){
+				  @include adaptiveValue("padding-bottom", 65, 30);
+			}
 			&::before{
 				content: "";
 				background: linear-gradient(90deg, rgba(31, 29, 33, 0.9) 0%, rgba(31, 29, 33, 0) 100%);
@@ -164,6 +167,9 @@ body.popup-show::after {
 	// .slide-popup-maps__body
 	&__body {
 		flex: 1 1 auto;
+		&:not(:last-child){
+			@include adaptiveValue("margin-bottom", 130, 25);
+		}
 	}
 
 	// .slide-popup-maps__title
@@ -215,8 +221,11 @@ body.popup-show::after {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	max-width: rem(385);
+	@include adaptiveValue("max-width", 385, 200);
 	width: 100%;
+	@media (max-width: em(414)){
+		max-width: 100%;
+	}
 	// height: 216px;
 	&__img {
 		width: 100%;
@@ -238,11 +247,43 @@ body.popup-show::after {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 140px;
-	height: 73px;
+	@include adaptiveValue("width", 140, 80);
+	@include adaptiveValue("height", 73, 50);
 	overflow: hidden;
 	svg {
 		width: 100%;
 		height: 100%;
 	}
+}
+.popup-maps__buttons-wrapper {
+	position: absolute;
+	bottom: 0;
+	z-index: 5000;
+	display: flex;
+	width: 100%;
+	height: 15%;
+	@media (max-width: em(515)){
+		height: 10%;
+	}
+	&::before{
+		content:''; 
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(360deg, rgba(31, 29, 33, 0.9) 0%, rgba(31, 29, 33, 0) 100%);
+	}
+}
+.popup-maps__buttons {
+	@include adaptiveValue("gap", 101, 15);
+	z-index: 15;
+	.slider-arrow {
+		@media (max-width: em(515)){
+			  display: none !important;
+		}
+	}
+}
+.popup-maps__pagging  {
+
 }

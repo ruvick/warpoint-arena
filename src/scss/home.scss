@@ -923,6 +923,9 @@
 		  }
 	}
 }
+.info-game__arena-modes {
+	@include adaptiveValue("padding-top", 87, 35);
+}
 //========================================================================================================================================================
 
 .heroes {
@@ -1026,24 +1029,9 @@
 	}
 
 	// .maps-game__title
-	&__title {
-		display: flex;
-		align-items: flex-end;
-		@include adaptiveValue("gap", 15, 5);
-		@include adaptiveValue("font-size", 52, 26);
-		font-weight: 700;
-		line-height: math.div(52, 52);
-		color: #fff;
+	&__title { 
 		&:not(:last-child){
 			margin-bottom: em(30, 52);
-		}
-		&::before{
-			content:''; 
-			float: left; 
-			@include adaptiveValue("width", 18, 8);
-			@include adaptiveValue("height", 18, 8);
-			background-color: #fff;
-			transform: translateY(rem(-10));
 		}
 	}
 
@@ -1056,6 +1044,8 @@
 
 	// .main-maps-game__slider
 	&__slider {
+		display: flex;
+		flex-direction: column;
 	}
 
 	// .main-maps-game__swiper
@@ -1085,8 +1075,9 @@
 			}
 		}
 	}
-	.slider-new-detail__buttons {
-		justify-content: center;
+	&__buttons {
+		@include adaptiveValue("gap", 101, 15);
+		@include adaptiveValue("margin-top", 38, 15);
 	}
 	&__fraction {
 		.swiper-pagination-current {
@@ -1103,11 +1094,6 @@
 	.slider-arrow svg path {
 		fill: #989898 !important;
   }
-  @media (max-width: 48em) {
-	.slider-new-detail__buttons .slider-arrow {
-		display: flex;
-	}
-}
 }
 
 .slide-maps-game {
@@ -1143,7 +1129,11 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		@include adaptiveValue("padding", 38, 15);
+		height: 100%;
+		@include adaptiveValue("padding-top", 43, 15);
+		@include adaptiveValue("padding-left", 30, 15);
+		@include adaptiveValue("padding-right", 30, 15);
+		@include adaptiveValue("padding-bottom", 43, 15);
 		background-color: #1F1D21;
 	}
 
