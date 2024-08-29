@@ -10,13 +10,13 @@
 	@include adaptiveValue("font-size", 52, 26);
 	font-weight: 700;
 	line-height: math.div(52, 52);
-	color: #fff;
+	color: #d9d9d9;
 	&::before{
 		content:''; 
 		float: left; 
 		@include adaptiveValue("width", 18, 8);
 		@include adaptiveValue("height", 18, 8);
-		background-color: #fff;
+		background-color: #d9d9d9;
 		transform: translateY(rem(-10));
 	}
 }
@@ -195,8 +195,8 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		@include adaptiveValue("width", 60, 30);
-		@include adaptiveValue("height", 60, 30);
+		@include adaptiveValue("width", 26, 13);
+		@include adaptiveValue("height", 36, 18);
 		overflow: hidden;
 		svg {
 			width: 100%;
