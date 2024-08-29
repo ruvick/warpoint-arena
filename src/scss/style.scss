@@ -167,7 +167,11 @@ body {
 		@include adaptiveValue("padding-bottom", 150, 60);
 	}
 	&__info {
-		@include adaptiveValue("padding-top", 230, 80);
+		@include adaptiveValue("padding-top", 111, 35);
+		@include adaptiveValue("padding-bottom", 52, 35);
+	}
+	&__summon-info {
+		@include adaptiveValue("padding-top", 57, 35);
 		@include adaptiveValue("padding-bottom", 120, 50);
 	}
 	&__about-game {
