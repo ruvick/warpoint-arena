@@ -184,8 +184,12 @@ body {
 	}
 	&__heroes {
 		// height: 2500px;
-		@include adaptiveValue("padding-top", 120, 65);
+		// @include adaptiveValue("padding-top", 120, 65);
 		// @include adaptiveValue("padding-bottom", 133, 65);
+	}
+	&__arena-modes {
+		@include adaptiveValue("padding-top", 60, 35);
+		@include adaptiveValue("padding-bottom", 90, 125);
 	}
 	&__battle {
 		@include adaptiveValue("padding-top", 120, 35);
