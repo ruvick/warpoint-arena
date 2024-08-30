@@ -274,6 +274,7 @@ function initSliders() {
 		// Инициализация основного слайдера
 		const mainSwiper = new Swiper('.main-modes__slider', {
 			modules: [Navigation, Pagination, Thumbs, Controller, EffectFade],
+			// loop: true,
 			// effect: 'fade',
 			// fadeEffect: {
 			// 	crossFade: true
@@ -281,9 +282,10 @@ function initSliders() {
 			observer: true,
 			observeParents: true,
 			slidesPerView: 1,
+			// slidesPerView: 'auto',
 			spaceBetween: 0,
 			speed: 1500,
-			centeredSlides: true,
+			// centeredSlides: true,
 			loop: true,
 			navigation: {
 				nextEl: '.main-modes__buttons .slider-arrow_next',
