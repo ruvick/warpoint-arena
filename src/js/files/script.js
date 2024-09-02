@@ -2,22 +2,39 @@
 import { isMobile, bodyLock, bodyUnlock } from "./functions.js";
 // import { formsModules } from "./forms/forms.js";
 
+window.onload = function () {
 
-const navigationBoxList = document.querySelector('.navigation-box__list');
+	const navigationBoxList = document.querySelector('.navigation-box__list');
 
-navigationBoxList.addEventListener('mouseover', function () {
-	this.classList.add('_active');
-	document.body.classList.add('navi-show');
-	// bodyLock();
-});
+	// Добавляем обработчики событий mouseover и mouseout только для десктопных устройств
+	if (!isMobile.any()) {
+		navigationBoxList.addEventListener('mouseover', function () {
+			this.classList.add('_active');
+			document.body.classList.add('navi-show');
+		});
 
-navigationBoxList.addEventListener('mouseout', function () {
-	this.classList.remove('_active');
-	document.body.classList.remove('navi-show');
-	// bodyUnlock();
-});
+		navigationBoxList.addEventListener('mouseout', function () {
+			this.classList.remove('_active');
+			document.body.classList.remove('navi-show');
+		});
+	}
 
+	// Добавляем обработчики событий click только для мобильных устройств
+	if (window.innerWidth > 768 && isMobile.any()) {
+		navigationBoxList.addEventListener('click', function (e) {
+			this.classList.toggle('_active');
+			document.body.classList.toggle('navi-show');
+		});
 
+		document.addEventListener('click', function (e) {
+			if (!e.target.closest('.navigation-box__list')) {
+				navigationBoxList.classList.remove('_active');
+				document.body.classList.remove('navi-show');
+			}
+		});
+	}
+
+};
 //========================================================================================================================================================
 
 // Slider Arsenal 

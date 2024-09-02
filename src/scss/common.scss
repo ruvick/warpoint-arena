@@ -242,19 +242,8 @@
 //========================================================================================================================================================
 
 .navigation-box {
-	// .navigation-box__wrapper
+
 	&__wrapper {
-		// position: relative;
-		// &::before{
-		// 	content:''; 
-		// 	position: absolute;
-		// 	top: 0;
-		// 	left: 0;
-		// 	width: 15%;
-		// 	height: 100%;
-		// 	background-color: transparent;
-		// 	z-index: 600;
-		// }
 	}
 
 	// .navigation-box__list
@@ -276,7 +265,7 @@
 			width: rem(18);
 			height: rem(8);
 			background-color: #8c8b8c;
-			transition: all 0.3s ease 0s;
+			transition: $mainTransition;
 		}
 		&:not(:last-child){
 			margin-bottom: em(20, 30);
@@ -296,8 +285,7 @@
 		width: 0;
 		overflow: hidden;
 		margin-left: rem(10);
-		transition: all 0.3s ease 0s;
-		// transform: translateX(-100%);
+		transition: $mainTransition;
 	}
 }
 
@@ -305,7 +293,6 @@
 	&:nth-child(1)	{
 		&::before{
 			height: rem(18);
-			// padding: 3.3%;
 		}
 	}
 	@media (any-hover: hover){
