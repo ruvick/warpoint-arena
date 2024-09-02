@@ -205,12 +205,12 @@ body {
 		@include adaptiveValue("padding-bottom", 70, 35);
 	}
 	&__news {
-		@include adaptiveValue("padding-top", 266, 55);
-		@include adaptiveValue("padding-bottom", 266, 55);
+		@include adaptiveValue("padding-top", 60, 35);
+		@include adaptiveValue("padding-bottom", 98, 35);
 	}
 	&__faq {
-		@include adaptiveValue("padding-top", 330, 35);
-		@include adaptiveValue("padding-bottom", 220, 35);
+		@include adaptiveValue("padding-top", 104, 35);
+		@include adaptiveValue("padding-bottom", 125, 35);
 	}
 	&__social {
 		@include adaptiveValue("padding-top", 122, 35);

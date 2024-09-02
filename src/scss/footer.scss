@@ -1,7 +1,7 @@
 //====================================================================================================
 .footer {
-	@include adaptiveValue("padding-top", 146, 30);
-	@include adaptiveValue("padding-bottom", 146, 30);
+	@include adaptiveValue("padding-top", 105, 30);
+	@include adaptiveValue("padding-bottom", 100, 30);
 	background-color: #1f1d21;
 }
 .footer__container {
