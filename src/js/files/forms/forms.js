@@ -8,7 +8,8 @@ import { SelectConstructor } from "../../libs/select.js";
 // Класс масок
 import { InputMask } from "../../libs/inputmask.js";
 // Функционал попапа
-// const popupItem = initPopups();
+
+const popupItem = initPopups();
 //==============================================================================================================================================================================================================================================================================================================================
 // Объект модулей форм для экспорта
 export const formsModules = {
@@ -25,17 +26,18 @@ data-required="email" - вадидация E-mail
 Чтобы поле валидировалось при потере фокуса, 
 к атрибуту data-required добавляем атрибут data-validate
 
-Чтобы вывести текст ошибки, нужно указать его в атрибуте data-error
+Чтобы вывести текст ошибки, нужно указать его в атрибуте data-error 
 */
 
 // Работа с полями формы. Добавление классов, работа с placeholder
 export function formFieldsInit() {
 	const formFields = document.querySelectorAll('input[placeholder],textarea[placeholder]');
-	if (formFields.length) {
-		formFields.forEach(formField => {
-			formField.dataset.placeholder = formField.placeholder;
-		});
-	}
+	// if (formFields.length) {
+	// 	formFields.forEach(formField => {
+	// 		formField.dataset.placeholder = formField.placeholder;
+	// 	});
+	// }
+
 	document.body.addEventListener("focusin", function (e) {
 		const targetElement = e.target;
 		if ((targetElement.tagName === 'INPUT' || targetElement.tagName === 'TEXTAREA')) {
@@ -44,7 +46,6 @@ export function formFieldsInit() {
 			}
 			targetElement.classList.add('_form-focus');
 			targetElement.parentElement.classList.add('_form-focus');
-
 			formValidate.removeError(targetElement);
 		}
 	});
@@ -56,6 +57,7 @@ export function formFieldsInit() {
 			}
 			targetElement.classList.remove('_form-focus');
 			targetElement.parentElement.classList.remove('_form-focus');
+			targetElement.parentElement.classList.add('_check-focus');
 
 			// Моментальная валидация
 			if (targetElement.hasAttribute('data-validate')) {
@@ -88,11 +90,28 @@ export let formValidate = {
 			} else {
 				this.removeError(formRequiredItem);
 			}
+		} else if (formRequiredItem.dataset.required === "name") {
+			formRequiredItem.value = formRequiredItem.value.replace(/[^А-Яа-яёA-Za-z-]/g, '');
+			if (formRequiredItem.value.trim().length < 3) {
+				this.addError(formRequiredItem);
+				error++;
+				formRequiredItem.parentElement.querySelector('.form__error').innerHTML = "Минимальная длинна 4 символа";
+			} else {
+				this.removeError(formRequiredItem);
+			}
+		} else if (formRequiredItem.dataset.required === "tel") {
+			if (formRequiredItem.value.trim().length < 17) {
+				this.addError(formRequiredItem);
+				error++;
+				formRequiredItem.parentElement.querySelector('.form__error').innerHTML = "Минимальная длинна 10 символов";
+			} else {
+				this.removeError(formRequiredItem);
+			}
 		} else if (formRequiredItem.type === "checkbox" && !formRequiredItem.checked) {
 			this.addError(formRequiredItem);
 			error++;
 		} else {
-			if (!formRequiredItem.value) {
+			if (!formRequiredItem.value.trim()) {
 				this.addError(formRequiredItem);
 				error++;
 			} else {
@@ -104,10 +123,11 @@ export let formValidate = {
 	addError(formRequiredItem) {
 		formRequiredItem.classList.add('_form-error');
 		formRequiredItem.parentElement.classList.add('_form-error');
+		formRequiredItem.parentElement.classList.remove('_check-focus');
 		let inputError = formRequiredItem.parentElement.querySelector('.form__error');
 		if (inputError) formRequiredItem.parentElement.removeChild(inputError);
 		if (formRequiredItem.dataset.error) {
-			formRequiredItem.parentElement.insertAdjacentHTML('beforeend', `<div class="form__error">${formRequiredItem.dataset.error}</div>`);
+			formRequiredItem.parentElement.insertAdjacentHTML('beforeend', `<span class="form__error">${formRequiredItem.dataset.error}</span>`);
 		}
 	},
 	removeError(formRequiredItem) {
@@ -150,6 +170,19 @@ export let formValidate = {
 		return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(formRequiredItem.value);
 	}
 }
+
+// Ограничение ввода цифровых символов и символов более 50 
+document.addEventListener('input', function (e) {
+	const input = e.target;
+	if (input.dataset.required === "name") {
+		// Удаляем все символы, кроме букв и "-"
+		input.value = input.value.replace(/[^А-Яа-яёA-Za-z-]/g, '');
+	}
+	if (input.value.length > 50) {
+		input.value = input.value.slice(0, 50);
+	}
+});
+
 /* Отправка форм */
 export function formSubmit(validate) {
 	const forms = document.forms;
@@ -168,7 +201,7 @@ export function formSubmit(validate) {
 	async function formSubmitAction(form, e) {
 		const error = validate ? formValidate.getErrors(form) : 0;
 		if (error === 0) {
-			const popup = form.dataset.popup;
+			const popupMessage = form.dataset.popupMessage; // Извлекаем значение атрибута data-popup-message
 			const ajax = form.hasAttribute('data-ajax');
 			//SendForm
 			if (ajax) {
@@ -185,9 +218,9 @@ export function formSubmit(validate) {
 				if (response.ok) {
 					let responseResult = await response.json();
 					form.classList.remove('_sending');
-					if (popup) {
+					if (popupMessage) {
 						// Нужно подключить зависимость
-						popupItem.open(`#${popup}`);
+						popupItem.open(popupMessage); // Открываем попап, используя значение атрибута data-popup-message
 					}
 					formValidate.formClean(form);
 				} else {
@@ -198,9 +231,9 @@ export function formSubmit(validate) {
 			// Если режим разработки
 			if (form.hasAttribute('data-dev')) {
 				e.preventDefault();
-				if (popup) {
+				if (popupMessage) {
 					// Нужно подключить зависимость
-					popupItem.open(`#${popup}`);
+					popupItem.open(popupMessage); // Открываем попап, используя значение атрибута data-popup-message
 				}
 				formValidate.formClean(form);
 			}
@@ -210,7 +243,6 @@ export function formSubmit(validate) {
 			if (formError && form.hasAttribute('data-goto-error')) {
 				gotoBlock(formError, true, 1000);
 			}
-
 		}
 	}
 }
@@ -355,3 +387,6 @@ export function formRating() {
 		}
 	}
 }
+
+
+

@@ -70,13 +70,13 @@ flsFunctions.initPopups(false);
 import * as flsForms from "./files/forms/forms.js";
 
 /* Работа с полями формы: добавление классов, работа с placeholder. */
-// flsForms.formFieldsInit();
+flsForms.formFieldsInit();
 
 /* Oтправка формы со встроенной валидацией полей. false - отключит валидацию */
-// flsForms.formSubmit(true);
+flsForms.formSubmit(true);
 
 /* (В работе) Работа с масками. Для включения ??? (подсказок в консоли) передать true */
-// flsForms.formMasks(true);
+flsForms.formMasks(true);
 
 /* Модуль формы "колличество" */
 // flsForms.formQuantity();

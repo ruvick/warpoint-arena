@@ -15,15 +15,16 @@ textarea {
 	border-radius: 0 !important;
 	width: 100%;
 	display: block;
-	padding: 0px 20px;
+	padding: 0px rem(20);
 	&._focus {
 	}
 	&._error {
+		color: red;
 	}
 }
 textarea.input {
 	resize: none;
-	padding: 0px 0px;
+	padding: 0;
 }
 
 // Стилизация placeholder 
@@ -55,4 +56,132 @@ input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 	margin: 0;
 	/* <-- Apparently some margin are still there even though it's hidden */
+}
+//========================================================================================================================================================
+
+.Input {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	&._form-error {
+
+	}
+	.form__error {
+		display: inline-flex;
+		font-size: rem(13);
+		font-family: 'Gilroy', sans-serif;
+		color: red;
+		margin-top: rem(3);
+	}
+ }
+
+ .Input .input__viewpass {
+	position: absolute;
+	right: 0.8125rem;
+	top: 50%;
+	transform: translate(0, -50%);
+	color: rgba(2, 0, 32, 0.3);
+	font-size: 1.25rem;
+	background: transparent;
+}
+
+.Input._form-error {
+	.Input__check {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+.Input__check {
+	position: absolute;
+	right: rem(15);
+	top: 50%;
+	transform: translate(0, -50%);
+	color: rgba(0, 191, 54, 1);
+	font-size: rem(16);
+	background: transparent;
+	opacity: 0;
+	visibility: hidden;
+	// &._active{
+	// 	opacity: 1;
+	// 	visibility: visible;
+	// }
+}
+
+._check-focus .Input__check {
+	opacity: 1;
+	visibility: visible;
+}
+//========================================================================================================================================================
+
+// New input 
+.Input-text {
+	display: block;
+	margin: 0;
+	padding: 0 rem(18) 0 rem(18);
+	// color: #b4b3b4;
+	width: 100%;
+	border: none;
+	// border-radius: rem(3);
+	transition: $mainTransition;
+	height: rem(62);
+	background-color: #cecece;
+ }
+
+.cut {
+	position: absolute;
+	top: rem(-3);
+	left: rem(20);
+	transform: translateY(0);
+	transition: transform 200ms;
+ }
+ 
+ .cut-short {
+	width: rem(50);
+ }
+ 
+ .Input-label {
+	color: #65657b5c;
+	left: rem(20);
+	font-family: 'Gilroy', sans-serif;
+	@include adaptiveValue("font-size", 22, 16);
+	font-weight: 400;
+	line-height: math.div(25.89, 22);
+	pointer-events: none;
+	position: absolute;
+	transform-origin: 0 50%;
+	transition: transform 200ms, color 200ms;
+	top: rem(20);
+	// top: 50%;
+	// transform: translateY(-50%);
+	span {
+		color: #b4b3b4;
+	}
+ }
+ 
+ .Input-text:focus ~ .cut,
+ .Input-text:not(:placeholder-shown) ~ .cut {
+	transform: translateY(rem(8));
+ }
+
+ .Input-text:focus ~ .Input-label,
+ .Input-text:not(:placeholder-shown) ~ .Input-label {
+	transform: translateY(rem(-20)) translateX(rem(-5)) scale(0.65);
+ }
+ 
+ .Input-text:not(:placeholder-shown) ~ .Input-label {
+	// color: #808097;
+ }
+ 
+ .Input-text:focus ~ .Input-label {
+	// color: #dc2f55;
+ }
+
+ ._icon-check:before {
+	content: ""; 
+	display: flex;
+	width: rem(25);
+	height: rem(20);
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNSAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIgoJCWQ9Ik0yMS4zMzQgNi40NzAxNkwxMC4yMDY4IDE4TDMuMzMzOTggMTAuODc4NEw0LjkyNDYzIDkuNDA4MjRMMTAuMjA2OCAxNC44ODE2TDE5Ljc0MzMgNUwyMS4zMzQgNi40NzAxNloiCgkJZmlsbD0iI0UxMzIzOSIgLz4KPC9zdmc+');
 }
