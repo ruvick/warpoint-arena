@@ -154,6 +154,7 @@ body {
 @import "home";
 
 @import "new";
+@import "arsenal";
 //========================================================================================================================================================
 
 .page {
@@ -186,6 +187,10 @@ body {
 		// height: 2500px;
 		// @include adaptiveValue("padding-top", 120, 65);
 		// @include adaptiveValue("padding-bottom", 133, 65);
+	}
+	&__arsenal {
+		@include adaptiveValue("padding-top", 100, 35);
+		@include adaptiveValue("padding-bottom", 50, 35);
 	}
 	&__arena-modes {
 		@include adaptiveValue("padding-top", 60, 35);
@@ -250,5 +255,14 @@ body {
 	.page__header {
 		@include adaptiveValue("padding-top", 20, 15);
 		@include adaptiveValue("padding-bottom", 38, 20);
+	}
+}
+
+.page__navigation-box {
+	position: fixed;
+	top: 45%;
+	z-index: 550;
+	@media (max-width: em(1024)){
+		  display: none;
 	}
 }

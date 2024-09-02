@@ -77,7 +77,7 @@
 				</div>
 			</section>
 
-			<section class="page__summon-info summon-info">
+			<section id="summon-info" data-watch="navigator" class="page__summon-info summon-info">
 				<div class="summon-info__container">
 					<div class="summon-info__inner">
 						<div class="summon-info__title">
@@ -188,9 +188,13 @@
 				</div>
 			</section>
 
-			<section class="page__arena-modes arena-modes">
-				<div class="arena-modes__container">
+			<section id="arena-modes" data-watch="navigator" class="page__arena-modes arena-modes">
+
+				<div class="arena-modes-title__container">
 					<div class="arena-modes__title title-main">Режимы арены</div>
+				</div>
+
+				<div class="arena-modes__container">
 
 					<div class="arena-modes__main main-modes">
 						<div class="main-modes__container">
@@ -328,7 +332,7 @@
 				</div>
 			</section>
 
-			<section class="page__heroes heroes">
+			<section id="heroes" data-watch="navigator" class="page__heroes heroes">
 
 				<div class="heroes__banner banner-heroes">
 					<!-- <div class="banner-heroes__img-ibg">
@@ -344,7 +348,98 @@
 
 			</section>
 
-			<section class="page__maps-game maps-game">
+			<section id="arsenal" data-watch="navigator" class="page__arsenal arsenal">
+
+				<div class="arsenal__container">
+					<div class="arsenal__title title-main">ВАШ АРСЕНАЛ ЖДЕТ ВАС!</div>
+				</div>
+
+				<div class="arsenal__images images-arsenal">
+
+					<!-- <div class="images-arsenal__slider swiper">
+						<div class="images-arsenal__wrapper swiper-wrapper">
+							<div class="images-arsenal__slide swiper-slide"></div>
+						</div>
+					</div> -->
+
+					<div class="slider" id="slider">
+						<div class="slider-content" id="slider-content">
+							<div class="sl-img">
+								<div class="sl-img-item sl-img-item-active" data-id="1"><img src="img/arsenal/01.png" /></div>
+								<div class="sl-img-item" data-id="2"><img src="img/arsenal/02.png" /></div>
+								<div class="sl-img-item" data-id="3"><img src="img/arsenal/03.png" /></div>
+								<!-- <div class="sl-img-item" data-id="4"><img src="photo-4.jpg" /></div>
+								<div class="sl-img-item" data-id="5"><img src="photo-5.jpg" /></div>
+								<div class="sl-img-item" data-id="6"><img src="photo-6.jpg" /></div> -->
+							</div>
+							<div class="sl-text">
+								<div class="sl-text-item sl-text-item-active" data-id="1">
+									<div class="sl-text-item-head">
+										<h3>Акм-77</h3>
+									</div>
+									<div class="sl-text-item-info">
+										<p>Автомат Калашникова</p>
+									</div>
+								</div>
+								<div class="sl-text-item" data-id="2">
+									<div class="sl-text-item-head">
+										<h3>HK UMP</h3>
+									</div>
+									<div class="sl-text-item-info">
+										<p>Пистолет-пулемет</p>
+									</div>
+								</div>
+								<div class="sl-text-item" data-id="3">
+									<div class="sl-text-item-head">
+										<h3>Вesrt eagle</h3>
+									</div>
+									<div class="sl-text-item-info">
+										<p>Самозарядный пистолет</p>
+									</div>
+								</div>
+								<!-- <div class="sl-text-item" data-id="4">
+									<div class="sl-text-item-head">
+										<h3>Озеро Ирен</h3>
+									</div>
+									<div class="sl-text-item-info">
+										<p>Национальный парк Роки-Маунтин</p>
+									</div>
+								</div> -->
+								<!-- <div class="sl-text-item" data-id="5">
+									<div class="sl-text-item-head">
+										<h3>Енот</h3>
+									</div>
+									<div class="sl-text-item-info"></div>
+								</div> -->
+								<!-- <div class="sl-text-item" data-id="6">
+									<div class="sl-text-item-head"></div>
+									<div class="sl-text-item-info">
+										<p>Синица</p>
+									</div>
+								</div> -->
+							</div>
+						</div>
+						<div class="slider__nav">
+							<div class="sl-nav-arrows">
+								<div class="sl-nav-arrow sl-nav-arrow-left" id="left">Лево</div>
+								<div class="sl-nav-arrow sl-nav-arrow-right" id="right">Право</div>
+							</div>
+							<div class="sl-nav-dots" id="sl-nav-dots">
+								<div class="sl-nav-dot sl-nav-dot-active" data-id="1"></div>
+								<div class="sl-nav-dot" data-id="2"></div>
+								<div class="sl-nav-dot" data-id="3"></div>
+								<!-- <div class="sl-nav-dot" data-id="4"></div>
+								<div class="sl-nav-dot" data-id="5"></div>
+								<div class="sl-nav-dot" data-id="6"></div> -->
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</section>
+
+			<section id="maps-game" data-watch="navigator" class="page__maps-game maps-game">
 
 				<div class="maps-game__title-block">
 					<div class="maps-game__container">
@@ -654,7 +749,7 @@
 
 			</section>
 
-			<section class="page__news news">
+			<section id="news" data-watch="navigator" class="page__news news">
 				<div class="news__container">
 
 					<div class="news__title title">Последние новости</div>
@@ -676,7 +771,7 @@
 				</div>
 			</section>
 
-			<section class="page__battle battle">
+			<section id="battle" data-watch="navigator" class="page__battle battle">
 				<div class="battle__container">
 					<div class="battle__descp descp-battle">
 						<div class="descp-battle__above">VR ESPORTS ARENA</div>
@@ -695,7 +790,7 @@
 				</div>
 			</section>
 
-			<section class="page__faq faq">
+			<section id="faq" data-watch="navigator" class="page__faq faq">
 				<div class="faq__container">
 
 					<div class="faq__title title">Часто задаваемые вопросы</div>

@@ -980,6 +980,10 @@
 	// }
 }
 
+.arena-modes-title__container {
+	max-width: rem(1620);
+}
+
 .arena-modes {
 	background-color: #BA2E35;
 	// .arena-modes__container
@@ -997,6 +1001,7 @@
 
 	// .arena-modes__main
 	&__main {
+		@include adaptiveValue("padding-top", 20, 10);
 		// transform: translateY(130px);
 	}
 }
@@ -1410,10 +1415,10 @@
 //========================================================================================================================================================
 
 .maps-game {
-
+	background-color: #BA2E35;
 	// .maps-game__wrpper
 	&__container {
-		max-width: 100%;
+		max-width: rem(1620);
 	}
 
 	&__title-block {

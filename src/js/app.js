@@ -125,7 +125,7 @@ import "./files/sliders.js";
 Документация плагина: https://github.com/Grsmto/simplebar/tree/master/packages/simplebar
 Сниппет(HTML): 
 */
-// import './files/scroll/simplebar.js';
+import './files/scroll/simplebar.js';
 
 /*
 Ленивая (отложенная) загрузка картинок
@@ -142,13 +142,13 @@ import * as flsScroll from "./files/scroll/scroll.js";
 // Документация по работе в шаблоне: js/libs/watcher.js
 // Сниппет(HTML):
 // Для включения ??? (подсказок в консоли), указать параметр true
-// flsScroll.scrollWatcher(false);
+flsScroll.scrollWatcher(true);
 
 // Плавная навигация по странице
-// flsScroll.pageNavigation();
+flsScroll.pageNavigation();
 
 // Функционал добавления классов к хедеру при прокрутке
-// flsScroll.headerScroll();
+flsScroll.headerScroll();
 
 // Функционал липкого блока
 // flsScroll.stickyBlock();
