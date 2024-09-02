@@ -288,8 +288,8 @@ function initSliders() {
 			// centeredSlides: true,
 			loop: true,
 			navigation: {
-				nextEl: '.main-modes__buttons .slider-arrow_next',
-				prevEl: '.main-modes__buttons .slider-arrow_prev',
+				nextEl: '.main-modes__arrow-next',
+				prevEl: '.main-modes__arrow-prev',
 			},
 			thumbs: {
 				swiper: thumbsSwiper

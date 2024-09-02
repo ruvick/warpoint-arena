@@ -1188,10 +1188,34 @@
 	transform: translate(-50%, -50%);
 	z-index: 5;
 	justify-content: space-between;
-	width: 68%;
-   z-index: 500;
+	/* width: 68%; */
+	z-index: 500;
 	@media (max-width: em(991)){
 		  width: 100%;
+	}
+} 
+
+.main-modes__arrow-next {
+	right: 15%;
+	justify-content: flex-end;
+}
+.main-modes__arrow-prev {
+	left: 15%;
+}
+
+.main-modes__images {
+	.slider-arrow {
+		top: 0;
+		position: absolute;
+		z-index: 5;
+		width: 10%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		padding: 0 rem(10) 0 rem(10);
+		@media (max-width: em(768)){
+			  display: none;
+		}
 	}
 }
 
@@ -1203,11 +1227,11 @@
 		max-width: 100%;
 		height: 100%;
 		@media (max-width: em(991)){
-			@include adaptiveValue("top", 95, 30);
+			// @include adaptiveValue("top", 95, 30);
 		}
-		@media (max-width: em(700)){
-			@include adaptiveValue("top", 95, 45);
-		}
+		// @media (max-width: em(700)){
+		// 	@include adaptiveValue("top", 95, 45);
+		// }
 	}
 }
 
@@ -1323,6 +1347,20 @@
 	}
 }
 
+.main-modes__thumbs {
+	@media (max-width: em(991)){
+		  height: 111%;
+	}
+	@media (max-width: em(768)){
+		height: 113%;
+ 	}
+	 @media (max-width: em(612)){
+		height: 115%;
+ 	}
+	 @media (max-width: em(345)){
+		height: 117%;
+ 	}
+}
 //========================================================================================================================================================
 
 .heroes {
