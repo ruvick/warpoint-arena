@@ -72,3 +72,7 @@
 		}
 	}
 }
+
+._spoller-init .spollers__title._spoller-active::after {
+	background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjMiIGhlaWdodD0iMjYiIHZpZXdCb3g9IjAgMCAyMyAyNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxwYXRoIGQ9Ik0yMy4wMDAyIDEyLjg0NDdMMC43NTI0NDIgMjUuNjg5NUwwLjc1MjQ0MiAxLjUyOTE1ZS0wN0wyMy4wMDAyIDEyLjg0NDdaIiBmaWxsPSIjRTEzMjM5IiAvPgo8L3N2Zz4=');
+}
