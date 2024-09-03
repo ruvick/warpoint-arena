@@ -1,5 +1,5 @@
 // Импорт функционала ==============================================================================================================================================================================================================================================================================================================================
-import { isMobile, bodyLock, bodyUnlock } from "./functions.js";
+import { isMobile, bodyLock, bodyUnlock, _slideToggle } from "./functions.js";
 // import { formsModules } from "./forms/forms.js";
 
 window.onload = function () {
@@ -273,6 +273,20 @@ window.onload = function () {
 // sliderEl.addEventListener('mousemove', stopAutoSlide);
 // sliderEl.addEventListener('touchstart', stopAutoSlide);
 // timer = setTimeout(autoSlide, 4000);
+//========================================================================================================================================================
+
+
+const arsenalThumbsBtn = document.querySelectorAll('.arsenal-thumbs__btn');
+const arsenalThumbsBody = document.querySelector('.arsenal-thumbs__body');
+
+if (arsenalThumbsBody) {
+	arsenalThumbsBtn.forEach(button => {
+		button.addEventListener('click', () => {
+			button.classList.toggle('_active');
+			_slideToggle(arsenalThumbsBody);
+		});
+	});
+}
 //========================================================================================================================================================
 
 // Parallax 
