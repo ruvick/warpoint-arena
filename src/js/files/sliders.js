@@ -300,6 +300,144 @@ function initSliders() {
 			// другие настройки
 		});
 	}
+
+	if (document.querySelector('.arsenal-slider')) {
+		new Swiper('.arsenal-slider', {
+			// Подключаем модули слайдера
+			// для конкретного случая
+			modules: [Navigation, Pagination],
+			/*
+			effect: 'fade',
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+			*/
+			observer: true,
+			observeParents: true,
+			slidesPerView: 1,
+			spaceBetween: 0,
+			// autoHeight: true,
+			speed: 1000,
+			// centeredSlides: true,
+			// parallax: true,
+			//touchRatio: 0,
+			//simulateTouch: false,
+			loop: true,
+			//preloadImages: false,
+			// lazy: true,
+			// Dotts
+			pagination: {
+				el: '.popup-maps__pagging',
+				clickable: true,
+			},
+			// Arrows
+			navigation: {
+				nextEl: '.actions-arsenal-sl__arrow-next',
+				prevEl: '.actions-arsenal-sl__arrow-prev',
+			},
+			// breakpoints: {
+			// 	375: {
+			// 		slidesPerView: 1.3,
+			// 		// autoHeight: true,
+			// 	},
+			// 	480: {
+			// 		slidesPerView: 1.8,
+			// 		spaceBetween: 10,
+			// 		// autoHeight: true,
+			// 	},
+			// 	540: {
+			// 		slidesPerView: 2.3,
+			// 		spaceBetween: 10,
+			// 		// autoHeight: true,
+			// 	},
+			// 	768: {
+			// 		slidesPerView: 2.3,
+			// 		spaceBetween: 10,
+			// 	},
+			// 	992: {
+			// 		slidesPerView: 2.8,
+			// 		spaceBetween: 10,
+			// 	},
+			// 	1024: {
+			// 		slidesPerView: 3,
+			// 		spaceBetween: 17,
+			// 	},
+			// },
+			on: {
+
+			}
+		});
+	}
+
+	if (document.querySelector('.arsenal-thumbs__slider')) {
+		new Swiper('.arsenal-thumbs__slider', {
+			// Подключаем модули слайдера
+			// для конкретного случая
+			modules: [Navigation, Pagination],
+			/*
+			effect: 'fade',
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+			*/
+			observer: true,
+			observeParents: true,
+			slidesPerView: 4,
+			spaceBetween: 12,
+			// autoHeight: true,
+			speed: 1000,
+			// centeredSlides: true,
+			// parallax: true,
+			//touchRatio: 0,
+			//simulateTouch: false,
+			loop: true,
+			//preloadImages: false,
+			// lazy: true,
+			// Dotts
+			// pagination: {
+			// 	el: '.popup-maps__pagging',
+			// 	clickable: true,
+			// },
+			// Arrows
+			// navigation: {
+			// 	nextEl: '.actions-arsenal-sl__arrow-next',
+			// 	prevEl: '.actions-arsenal-sl__arrow-prev',
+			// },
+			// breakpoints: {
+			// 	375: {
+			// 		slidesPerView: 1.3,
+			// 		// autoHeight: true,
+			// 	},
+			// 	480: {
+			// 		slidesPerView: 1.8,
+			// 		spaceBetween: 10,
+			// 		// autoHeight: true,
+			// 	},
+			// 	540: {
+			// 		slidesPerView: 2.3,
+			// 		spaceBetween: 10,
+			// 		// autoHeight: true,
+			// 	},
+			// 	768: {
+			// 		slidesPerView: 2.3,
+			// 		spaceBetween: 10,
+			// 	},
+			// 	992: {
+			// 		slidesPerView: 2.8,
+			// 		spaceBetween: 10,
+			// 	},
+			// 	1024: {
+			// 		slidesPerView: 3,
+			// 		spaceBetween: 17,
+			// 	},
+			// },
+			on: {
+
+			}
+		});
+	}
 }
 // }
 
