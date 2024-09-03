@@ -57,6 +57,16 @@ input::-webkit-inner-spin-button {
 	margin: 0;
 	/* <-- Apparently some margin are still there even though it's hidden */
 }
+
+input[type=radio] {
+	position: absolute;
+	width: 0;
+	height: 0;
+	opacity: 0;
+	left: 0;
+	top: 0;
+	visibility: hidden;
+}
 //========================================================================================================================================================
 
 .Input {

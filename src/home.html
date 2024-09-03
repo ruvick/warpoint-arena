@@ -10,7 +10,7 @@
 		<main class="page page_home">
 
 			<section class="page__first-screen first-screen" style="background-image: url('img/first-screen-bg.jpg')">
-				<div class="first-screen__img mouse-parallax">
+				<div class="first-screen__img">
 					<img src="img/first-screen-bg.jpg" loading="lazy" alt="Картинка">
 				</div>
 				<div class="first-screen__container">
@@ -360,6 +360,12 @@
 
 			</section>
 
+			<section class="page__history history">
+				<div class="history__container">
+					<div class="history__title title-main">Ваша история начинается здесь</div>
+				</div>
+			</section>
+
 			<section id="arsenal" data-watch="navigator" class="page__arsenal arsenal">
 
 				<div class="arsenal__container">
@@ -368,21 +374,67 @@
 
 				<div class="arsenal__images images-arsenal">
 
-					<!-- <div class="images-arsenal__slider swiper">
-						<div class="images-arsenal__wrapper swiper-wrapper">
-							<div class="images-arsenal__slide swiper-slide"></div>
-						</div>
-					</div> -->
+					<div class="images-arsenal__img-bg mouse-parallax">
+						<img src="img/arsenal/arsenal-bg.jpg" loading="lazy" alt="Картинка">
+					</div>
 
-					<div class="slider" id="slider">
+					<div class="images-arsenal__container">
+
+						<div class="images-arsenal__actions actions-arsenal">
+							<label type="button" class="actions-arsenal__btn cat-button">
+								<input class="cat-button__input" type="radio" name="radio" checked>
+								<span class="cat-button__btn">
+									<span class="cat-button__name">Пистолеты</span>
+								</span>
+							</label>
+							<label type="button" class="actions-arsenal__btn cat-button">
+								<input class="cat-button__input" type="radio" name="radio">
+								<span class="cat-button__btn">
+									<span class="cat-button__name">Пистолеты-пулемёты</span>
+								</span>
+							</label>
+							<label type="button" class="actions-arsenal__btn cat-button">
+								<input class="cat-button__input" type="radio" name="radio">
+								<span class="cat-button__btn">
+									<span class="cat-button__name">Штурмовые винтовки</span>
+								</span>
+							</label>
+							<label type="button" class="actions-arsenal__btn cat-button">
+								<input class="cat-button__input" type="radio" name="radio">
+								<span class="cat-button__btn">
+									<span class="cat-button__name">Снайперские винтовки</span>
+								</span>
+							</label>
+							<label type="button" class="actions-arsenal__btn cat-button">
+								<input class="cat-button__input" type="radio" name="radio">
+								<span class="cat-button__btn">
+									<span class="cat-button__name">Тяжёлое оружие</span>
+								</span>
+							</label>
+							<label type="button" class="actions-arsenal__btn cat-button">
+								<input class="cat-button__input" type="radio" name="radio">
+								<span class="cat-button__btn">
+									<span class="cat-button__name">Снаряжение</span>
+								</span>
+							</label>
+						</div>
+
+						<div class="images-arsenal__slider swiper">
+							<div class="images-arsenal__wrapper swiper-wrapper">
+								<div class="images-arsenal__slide swiper-slide"></div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+				<!-- <div class="slider" id="slider">
 						<div class="slider-content" id="slider-content">
 							<div class="sl-img">
 								<div class="sl-img-item sl-img-item-active" data-id="1"><img src="img/arsenal/01.png" /></div>
 								<div class="sl-img-item" data-id="2"><img src="img/arsenal/02.png" /></div>
 								<div class="sl-img-item" data-id="3"><img src="img/arsenal/03.png" /></div>
-								<!-- <div class="sl-img-item" data-id="4"><img src="photo-4.jpg" /></div>
-								<div class="sl-img-item" data-id="5"><img src="photo-5.jpg" /></div>
-								<div class="sl-img-item" data-id="6"><img src="photo-6.jpg" /></div> -->
 							</div>
 							<div class="sl-text">
 								<div class="sl-text-item sl-text-item-active" data-id="1">
@@ -409,26 +461,6 @@
 										<p>Самозарядный пистолет</p>
 									</div>
 								</div>
-								<!-- <div class="sl-text-item" data-id="4">
-									<div class="sl-text-item-head">
-										<h3>Озеро Ирен</h3>
-									</div>
-									<div class="sl-text-item-info">
-										<p>Национальный парк Роки-Маунтин</p>
-									</div>
-								</div> -->
-								<!-- <div class="sl-text-item" data-id="5">
-									<div class="sl-text-item-head">
-										<h3>Енот</h3>
-									</div>
-									<div class="sl-text-item-info"></div>
-								</div> -->
-								<!-- <div class="sl-text-item" data-id="6">
-									<div class="sl-text-item-head"></div>
-									<div class="sl-text-item-info">
-										<p>Синица</p>
-									</div>
-								</div> -->
 							</div>
 						</div>
 						<div class="slider__nav">
@@ -440,14 +472,10 @@
 								<div class="sl-nav-dot sl-nav-dot-active" data-id="1"></div>
 								<div class="sl-nav-dot" data-id="2"></div>
 								<div class="sl-nav-dot" data-id="3"></div>
-								<!-- <div class="sl-nav-dot" data-id="4"></div>
-								<div class="sl-nav-dot" data-id="5"></div>
-								<div class="sl-nav-dot" data-id="6"></div> -->
 							</div>
 						</div>
-					</div>
+					</div> -->
 
-				</div>
 
 			</section>
 
