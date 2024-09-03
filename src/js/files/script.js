@@ -276,17 +276,16 @@ window.onload = function () {
 //========================================================================================================================================================
 
 
-const arsenalThumbsBtn = document.querySelectorAll('.arsenal-thumbs__btn');
-const arsenalThumbsBody = document.querySelector('.arsenal-thumbs__body');
+document.querySelectorAll('.arsenal-thumbs__body').forEach((arsenalThumbsBody, index) => {
+	const arsenalThumbsBtn = document.querySelectorAll('.arsenal-thumbs__btn')[index];
 
-if (arsenalThumbsBody) {
-	arsenalThumbsBtn.forEach(button => {
-		button.addEventListener('click', () => {
-			button.classList.toggle('_active');
+	if (arsenalThumbsBody && arsenalThumbsBtn) {
+		arsenalThumbsBtn.addEventListener('click', () => {
+			arsenalThumbsBtn.classList.toggle('_active');
 			_slideToggle(arsenalThumbsBody);
 		});
-	});
-}
+	}
+});
 //========================================================================================================================================================
 
 // Parallax 

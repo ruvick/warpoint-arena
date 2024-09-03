@@ -319,18 +319,20 @@ function initSliders() {
 			spaceBetween: 0,
 			// autoHeight: true,
 			speed: 1000,
+			simulateTouch: false, // Отключаем свайп мышью
+			allowTouchMove: false, // Отключаем свайп на сенсорных устройствах
 			// centeredSlides: true,
 			// parallax: true,
 			//touchRatio: 0,
 			//simulateTouch: false,
-			loop: true,
+			// loop: true,
 			//preloadImages: false,
 			// lazy: true,
 			// Dotts
-			pagination: {
-				el: '.popup-maps__pagging',
-				clickable: true,
-			},
+			// pagination: {
+			// 	el: '.popup-maps__pagging',
+			// 	clickable: true,
+			// },
 			// Arrows
 			navigation: {
 				nextEl: '.actions-arsenal-sl__arrow-next',
@@ -370,16 +372,16 @@ function initSliders() {
 		});
 	}
 
-	if (document.querySelector('.arsenal-thumbs__slider')) {
-		new Swiper('.arsenal-thumbs__slider', {
+	document.querySelectorAll('.arsenal-thumbs__slider').forEach((thumbsSlider, index) => {
+		const thumbsSwiper = new Swiper(thumbsSlider, {
 			// Подключаем модули слайдера
 			// для конкретного случая
-			modules: [Navigation, Pagination],
+			modules: [Navigation, Pagination, Thumbs],
 			/*
 			effect: 'fade',
 			autoplay: {
-				delay: 3000,
-				disableOnInteraction: false,
+				 delay: 3000,
+				 disableOnInteraction: false,
 			},
 			*/
 			observer: true,
@@ -388,56 +390,125 @@ function initSliders() {
 			spaceBetween: 12,
 			// autoHeight: true,
 			speed: 1000,
+			slideToClickedSlide: true,
+			// centeredSlides: true,
+			// parallax: true,
+			//touchRatio: 0,
+			//simulateTouch: false,
+			// loop: true,
+			//preloadImages: false,
+			// lazy: true,
+			// Dotts
+			// pagination: {
+			// el: '.popup-maps__pagging',
+			// clickable: true,
+			// },
+			// Arrows
+			// navigation: {
+			// nextEl: '.actions-arsenal-sl__arrow-next',
+			// prevEl: '.actions-arsenal-sl__arrow-prev',
+			// },
+			// breakpoints: {
+			// 375: {
+			//     slidesPerView: 1.3,
+			//     // autoHeight: true,
+			// },
+			// 480: {
+			//     slidesPerView: 1.8,
+			//     spaceBetween: 10,
+			//     // autoHeight: true,
+			// },
+			// 540: {
+			//     slidesPerView: 2.3,
+			//     spaceBetween: 10,
+			//     // autoHeight: true,
+			// },
+			// 768: {
+			//     slidesPerView: 2.3,
+			//     spaceBetween: 10,
+			// },
+			// 992: {
+			//     slidesPerView: 2.8,
+			//     spaceBetween: 10,
+			// },
+			// 1024: {
+			//     slidesPerView: 3,
+			//     spaceBetween: 17,
+			// },
+			// },
+			on: {}
+		});
+
+		const imageSlider = document.querySelectorAll('.arsenal-image-sl__item')[index];
+		new Swiper(imageSlider, {
+			// Подключаем модули слайдера
+			// для конкретного случая
+			modules: [Navigation, Pagination, Thumbs, EffectFade],
+			// autoplay: {
+			// delay: 3000,
+			// disableOnInteraction: false,
+			// },
+			effect: 'fade',
+			fadeEffect: {
+				crossFade: true
+			},
+			observer: true,
+			observeParents: true,
+			slidesPerView: 1,
+			spaceBetween: 0,
+			// autoHeight: true,
+			speed: 1000,
 			// centeredSlides: true,
 			// parallax: true,
 			//touchRatio: 0,
 			//simulateTouch: false,
 			loop: true,
+			thumbs: {
+				swiper: thumbsSwiper
+			},
 			//preloadImages: false,
 			// lazy: true,
 			// Dotts
 			// pagination: {
-			// 	el: '.popup-maps__pagging',
-			// 	clickable: true,
+			// el: '.popup-maps__pagging',
+			// clickable: true,
 			// },
 			// Arrows
 			// navigation: {
-			// 	nextEl: '.actions-arsenal-sl__arrow-next',
-			// 	prevEl: '.actions-arsenal-sl__arrow-prev',
+			// nextEl: '.actions-arsenal-sl__arrow-next',
+			// prevEl: '.actions-arsenal-sl__arrow-prev',
 			// },
 			// breakpoints: {
-			// 	375: {
-			// 		slidesPerView: 1.3,
-			// 		// autoHeight: true,
-			// 	},
-			// 	480: {
-			// 		slidesPerView: 1.8,
-			// 		spaceBetween: 10,
-			// 		// autoHeight: true,
-			// 	},
-			// 	540: {
-			// 		slidesPerView: 2.3,
-			// 		spaceBetween: 10,
-			// 		// autoHeight: true,
-			// 	},
-			// 	768: {
-			// 		slidesPerView: 2.3,
-			// 		spaceBetween: 10,
-			// 	},
-			// 	992: {
-			// 		slidesPerView: 2.8,
-			// 		spaceBetween: 10,
-			// 	},
-			// 	1024: {
-			// 		slidesPerView: 3,
-			// 		spaceBetween: 17,
-			// 	},
+			// 375: {
+			//     slidesPerView: 1.3,
+			//     // autoHeight: true,
 			// },
-			on: {
-
-			}
+			// 480: {
+			//     slidesPerView: 1.8,
+			//     spaceBetween: 10,
+			//     // autoHeight: true,
+			// },
+			// 540: {
+			//     slidesPerView: 2.3,
+			//     spaceBetween: 10,
+			//     // autoHeight: true,
+			// },
+			// 768: {
+			//     slidesPerView: 2.3,
+			//     spaceBetween: 10,
+			// },
+			// 992: {
+			//     slidesPerView: 2.8,
+			//     spaceBetween: 10,
+			// },
+			// 1024: {
+			//     slidesPerView: 3,
+			//     spaceBetween: 17,
+			// },
+			// },
+			on: {}
 		});
-	}
+	});
 }
 // }
 
