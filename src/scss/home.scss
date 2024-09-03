@@ -1535,7 +1535,7 @@
 	&__images {
 		min-height: rem(902);
 		margin-top: rem(48);
-		padding-top: 66px;
+		@include adaptiveValue("padding-top", 66, 25);
 		padding-bottom: 66px;
 	}
 }
@@ -1544,7 +1544,7 @@
 	position: relative;
 	overflow: hidden;
 	&__container {
-		max-width: rem(1066);
+		// max-width: rem(1066);
 	}
 	&__img-bg {
 		position: absolute;
@@ -1577,34 +1577,53 @@
 }
 
 .actions-arsenal {
-	display: grid; 
-	grid-template-columns: repeat(auto-fill, minmax(rem(160), 1fr)); 
-	gap: rem(10);
+	&__container {
+		max-width: rem(1066);
+		@media (max-width: em(768)){
+			  padding: 0;
+		}
+	}
+	&__inner {
+		display: grid; 
+		grid-template-columns: repeat(auto-fill, minmax(rem(160), 1fr)); 
+		gap: rem(10);
+		@media (max-width: em(768)){
+			display: flex;
+			overflow: auto;
+			padding: 0 rem(10);
+		}
+	}
 }
 
-.cat-button {
+.actions-btn {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
 	cursor: pointer;
-	transition: all .4s ease 0s;
+	transition: $mainTransition;
+	@media (max-width: em(768)){
+		  flex: 0 0 25%;
+	}
 }
-.cat-button__btn {
+.actions-btn__inner {
 	position: relative;
 	font-family: 'Gilroy', sans-serif;
 	@include adaptiveValue("font-size", 12, 10);
 	font-weight: 700;
 	line-height: math.div(14.86, 12);
 	letter-spacing: 0.05em;
-	padding: rem(13) rem(5);
+	@include adaptiveValue("padding-top", 13, 8);
+	padding-right: rem(5);
+	@include adaptiveValue("padding-bottom", 13, 8);
+	padding-left: rem(5);
 	text-transform: uppercase;
 	width: 100%;
 	white-space: nowrap;
 	color: #575558;
 	background-color: #1F1D21;
 	overflow: hidden;
-	transition: all .6s;
+	transition: $mainTransition;
 	@media (any-hover: hover){
 		 &:hover { 
 			color: #D9D9D9;
@@ -1612,7 +1631,7 @@
 	  } 
 	}
 }
-.cat-button input[type=radio]:checked+.cat-button__btn {
+.actions-btn input[type=radio]:checked+.actions-btn__inner {
 	color: #D9D9D9;
 	background-color: #E13239;
 }
