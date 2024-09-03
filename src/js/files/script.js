@@ -272,4 +272,15 @@ function stopAutoSlide() {
 }
 sliderEl.addEventListener('mousemove', stopAutoSlide);
 sliderEl.addEventListener('touchstart', stopAutoSlide);
-timer = setTimeout(autoSlide, 4000);    
+timer = setTimeout(autoSlide, 4000);
+//========================================================================================================================================================
+
+// Parallax 
+let bg = document.querySelectorAll('.mouse-parallax');
+for (let i = 0; i < bg.length; i++) {
+	window.addEventListener('mousemove', function (e) {
+		let x = e.clientX / window.innerWidth;
+		let y = e.clientY / window.innerHeight;
+		bg[i].style.transform = 'translate(-' + x * 50 + 'px, -' + y * 50 + 'px)';
+	});
+}

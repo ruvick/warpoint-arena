@@ -23,6 +23,7 @@
 	letter-spacing: 0.1em;
 	cursor: default;
 	text-align: left;
+	color: #a9a8aa;
 	background-color: #E4E4E4;
 	@include adaptiveValue("padding-top", 30, 15);
 	@include adaptiveValue("padding-right", 55, 35);
@@ -35,10 +36,10 @@
 		&::after {
 			content: "";
 			position: absolute;
-			@include adaptiveValue("right", 20, 10);
+			@include adaptiveValue("right", 36, 10);
 			top: 50%;
-			@include adaptiveValue("height", 45, 15);
-			@include adaptiveValue("width", 45, 15);
+			@include adaptiveValue("height", 20, 10);
+			@include adaptiveValue("width", 20, 10);
 			transition: transform 0.5s ease 0s;
 			background: url('../img/icons/arrow-sm.svg') center no-repeat;
 			background-size: contain;
@@ -61,9 +62,9 @@
 	line-height: math.div(16.98, 14);
 	color: #fff;
 	padding: 55px 34px;
-	@include adaptiveValue("padding-top", 55, 20);
+	@include adaptiveValue("padding-top", 15, 10);
 	@include adaptiveValue("padding-right", 34, 15);
-	@include adaptiveValue("padding-bottom", 55, 20);
+	@include adaptiveValue("padding-bottom", 15, 10);
 	@include adaptiveValue("padding-left", 34, 15);
 	background-color: #1F1D21;
 	p {
