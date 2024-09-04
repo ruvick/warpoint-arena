@@ -273,6 +273,58 @@ window.onload = function () {
 // sliderEl.addEventListener('mousemove', stopAutoSlide);
 // sliderEl.addEventListener('touchstart', stopAutoSlide);
 // timer = setTimeout(autoSlide, 4000);
+
+//========================================================================================================================================================
+
+function lerp(start, end, fraction) {
+	return start + (end - start) * fraction;
+}
+
+class BlockFollower {
+	constructor(el) {
+		this.el = el;
+		this.lastX = this.lastY = this.targetX = this.targetY = 0;
+		this.onMouseMove = this.onMouseMove.bind(this);
+		this.runAnimation = this.runAnimation.bind(this);
+		this.el.addEventListener('mousemove', this.onMouseMove);
+		this.animationRunning = false;
+	}
+
+	onMouseMove(event) {
+		const rect = this.el.getBoundingClientRect();
+		this.targetX = event.clientX - rect.left;
+		this.targetY = event.clientY - rect.top;
+		if (!this.animationRunning) {
+			this.animationRunning = true;
+			this.runAnimation();
+		}
+	}
+
+	runAnimation() {
+		if (!this.animationRunning) return;
+
+		const newPosX = lerp(this.lastX, this.targetX, 0.1);
+		const newPosY = lerp(this.lastY, this.targetY, 0.1);
+		this.lastX = newPosX;
+		this.lastY = newPosY;
+
+		const xCoeff = (newPosX - this.el.offsetWidth / 2) / (this.el.offsetWidth / 2);
+		const yCoeff = (this.el.offsetHeight / 2 - newPosY) / (this.el.offsetHeight / 2);
+
+		this.el.style.transform = `rotateY(${xCoeff * 25}deg) rotateX(${yCoeff * 25}deg)`;
+
+		if (Math.abs(this.lastX - this.targetX) < 1 && Math.abs(this.lastY - this.targetY) < 1) {
+			this.animationRunning = false;
+		} else {
+			requestAnimationFrame(this.runAnimation);
+		}
+	}
+}
+
+// Инициализация для всех блоков с классом .arsenal-image-sl__slide
+document.querySelectorAll('.arsenal-image-sl__slide').forEach(slide => {
+	new BlockFollower(slide);
+});
 //========================================================================================================================================================
 
 

@@ -304,10 +304,10 @@ function initSliders() {
 	if (document.querySelector('.arsenal-slider')) {
 		const swiper = new Swiper('.arsenal-slider', {
 			modules: [Navigation, Pagination, Thumbs, EffectFade],
-			effect: 'fade',
-			fadeEffect: {
-				crossFade: true
-			},
+			// effect: 'fade',
+			// fadeEffect: {
+			// 	crossFade: true
+			// },
 			observer: true,
 			observeParents: true,
 			slidesPerView: 1,
