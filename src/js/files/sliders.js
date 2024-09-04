@@ -365,8 +365,8 @@ function initSliders() {
 			*/
 			observer: true,
 			observeParents: true,
-			slidesPerView: 4,
-			spaceBetween: 12,
+			slidesPerView: 2.6,
+			spaceBetween: 5,
 			// autoHeight: true,
 			speed: 1000,
 			slideToClickedSlide: true,
@@ -387,34 +387,22 @@ function initSliders() {
 			// nextEl: '.actions-arsenal-sl__arrow-next',
 			// prevEl: '.actions-arsenal-sl__arrow-prev',
 			// },
-			// breakpoints: {
-			// 375: {
-			//     slidesPerView: 1.3,
-			//     // autoHeight: true,
-			// },
-			// 480: {
-			//     slidesPerView: 1.8,
-			//     spaceBetween: 10,
-			//     // autoHeight: true,
-			// },
-			// 540: {
-			//     slidesPerView: 2.3,
-			//     spaceBetween: 10,
-			//     // autoHeight: true,
-			// },
-			// 768: {
-			//     slidesPerView: 2.3,
-			//     spaceBetween: 10,
-			// },
-			// 992: {
-			//     slidesPerView: 2.8,
-			//     spaceBetween: 10,
-			// },
-			// 1024: {
-			//     slidesPerView: 3,
-			//     spaceBetween: 17,
-			// },
-			// },
+			breakpoints: {
+				// 375: {
+				// 	slidesPerView: 2.6,
+				// 	spaceBetween: 10,
+				// },
+				540: {
+					slidesPerView: 2.8,
+				},
+				768: {
+					slidesPerView: 3.6,
+				},
+				1024: {
+					slidesPerView: 4,
+					spaceBetween: 12,
+				},
+			},
 			on: {}
 		});
 
