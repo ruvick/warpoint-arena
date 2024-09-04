@@ -1,5 +1,5 @@
 // Импорт функционала ==============================================================================================================================================================================================================================================================================================================================
-import { isMobile, bodyLock, bodyUnlock, _slideToggle } from "./functions.js";
+import { isMobile, bodyLock, bodyUnlock, _slideToggle, _slideUp, _slideDown } from "./functions.js";
 // import { formsModules } from "./forms/forms.js";
 
 window.onload = function () {
@@ -337,7 +337,12 @@ document.querySelectorAll('.arsenal-thumbs__body').forEach((arsenalThumbsBody, i
 			_slideToggle(arsenalThumbsBody);
 		});
 	}
+	if (window.innerWidth <= 1024) {
+		_slideDown(arsenalThumbsBody);
+	}
 });
+
+
 //========================================================================================================================================================
 
 // Parallax 

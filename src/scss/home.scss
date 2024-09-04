@@ -1541,7 +1541,8 @@
 
 .images-arsenal {
 	position: relative;
-	overflow: hidden;
+	overflow: hidden; 
+	// @include adaptiveValue("min-height", 1010, 520);
 	&__container {
 		// max-width: rem(1066);
 	}
@@ -1889,6 +1890,7 @@
 	position: relative;
 	max-width: rem(986);
 	width: 68%;
+	@include adaptiveValue("min-height", 168, 110);
 	@include adaptiveValue("padding-top", 15, 5);
 	@include adaptiveValue("margin-top", 25, 20);
 	@media (max-width: em(991)){
