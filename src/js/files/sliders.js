@@ -302,74 +302,53 @@ function initSliders() {
 	}
 
 	if (document.querySelector('.arsenal-slider')) {
-		new Swiper('.arsenal-slider', {
-			// Подключаем модули слайдера
-			// для конкретного случая
+		const swiper = new Swiper('.arsenal-slider', {
 			modules: [Navigation, Pagination],
-			/*
-			effect: 'fade',
-			autoplay: {
-				delay: 3000,
-				disableOnInteraction: false,
-			},
-			*/
 			observer: true,
 			observeParents: true,
 			slidesPerView: 1,
 			spaceBetween: 0,
-			// autoHeight: true,
 			speed: 1000,
-			simulateTouch: false, // Отключаем свайп мышью
-			allowTouchMove: false, // Отключаем свайп на сенсорных устройствах
-			// centeredSlides: true,
-			// parallax: true,
-			//touchRatio: 0,
-			//simulateTouch: false,
-			// loop: true,
-			//preloadImages: false,
-			// lazy: true,
-			// Dotts
-			// pagination: {
-			// 	el: '.popup-maps__pagging',
-			// 	clickable: true,
-			// },
-			// Arrows
+			loop: true,
+			simulateTouch: false,
+			allowTouchMove: false,
 			navigation: {
 				nextEl: '.actions-arsenal-sl__arrow-next',
 				prevEl: '.actions-arsenal-sl__arrow-prev',
 			},
-			// breakpoints: {
-			// 	375: {
-			// 		slidesPerView: 1.3,
-			// 		// autoHeight: true,
-			// 	},
-			// 	480: {
-			// 		slidesPerView: 1.8,
-			// 		spaceBetween: 10,
-			// 		// autoHeight: true,
-			// 	},
-			// 	540: {
-			// 		slidesPerView: 2.3,
-			// 		spaceBetween: 10,
-			// 		// autoHeight: true,
-			// 	},
-			// 	768: {
-			// 		slidesPerView: 2.3,
-			// 		spaceBetween: 10,
-			// 	},
-			// 	992: {
-			// 		slidesPerView: 2.8,
-			// 		spaceBetween: 10,
-			// 	},
-			// 	1024: {
-			// 		slidesPerView: 3,
-			// 		spaceBetween: 17,
-			// 	},
-			// },
 			on: {
-
+				init: function () {
+					updateSlideNames(this);
+				},
+				slideChange: function () {
+					updateSlideNames(this);
+				}
 			}
 		});
+
+		function updateSlideNames(swiper) {
+			const slides = swiper.slides;
+			const totalSlides = slides.length;
+
+			slides.forEach((slide, index) => {
+				const prevIndex = (index - 1 + totalSlides) % totalSlides;
+				const nextIndex = (index + 1) % totalSlides;
+
+				const prevSlideName = slides[prevIndex].querySelector('.slide-arsenal__name').textContent;
+				const nextSlideName = slides[nextIndex].querySelector('.slide-arsenal__name').textContent;
+
+				const prevNameElement = slide.querySelector('.actions-arsenal-sl__name_prev');
+				const nextNameElement = slide.querySelector('.actions-arsenal-sl__name_next');
+
+				if (prevNameElement) {
+					prevNameElement.textContent = prevSlideName;
+				}
+
+				if (nextNameElement) {
+					nextNameElement.textContent = nextSlideName;
+				}
+			});
+		}
 	}
 
 	document.querySelectorAll('.arsenal-thumbs__slider').forEach((thumbsSlider, index) => {
