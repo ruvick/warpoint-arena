@@ -310,8 +310,6 @@ function initSliders() {
 			spaceBetween: 0,
 			speed: 1000,
 			loop: true,
-			simulateTouch: false,
-			allowTouchMove: false,
 			navigation: {
 				nextEl: '.actions-arsenal-sl__arrow-next',
 				prevEl: '.actions-arsenal-sl__arrow-prev',

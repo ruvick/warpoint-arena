@@ -1648,6 +1648,10 @@
 
 .arsenal-slider {
 	position: relative;
+	@media (min-width:em(1600)){
+		  max-width: rem(1600);
+		  margin: 0px auto;
+	}
 
 		// .arsenal-slider__wrapper
 		&__wrapper {
