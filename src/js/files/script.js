@@ -276,55 +276,55 @@ window.onload = function () {
 
 //========================================================================================================================================================
 
-function lerp(start, end, fraction) {
-	return start + (end - start) * fraction;
-}
+// function lerp(start, end, fraction) {
+// 	return start + (end - start) * fraction;
+// }
 
-class BlockFollower {
-	constructor(el) {
-		this.el = el;
-		this.lastX = this.lastY = this.targetX = this.targetY = 0;
-		this.onMouseMove = this.onMouseMove.bind(this);
-		this.runAnimation = this.runAnimation.bind(this);
-		this.el.addEventListener('mousemove', this.onMouseMove);
-		this.animationRunning = false;
-	}
+// class BlockFollower {
+// 	constructor(el) {
+// 		this.el = el;
+// 		this.lastX = this.lastY = this.targetX = this.targetY = 0;
+// 		this.onMouseMove = this.onMouseMove.bind(this);
+// 		this.runAnimation = this.runAnimation.bind(this);
+// 		this.el.addEventListener('mousemove', this.onMouseMove);
+// 		this.animationRunning = false;
+// 	}
 
-	onMouseMove(event) {
-		const rect = this.el.getBoundingClientRect();
-		this.targetX = event.clientX - rect.left;
-		this.targetY = event.clientY - rect.top;
-		if (!this.animationRunning) {
-			this.animationRunning = true;
-			this.runAnimation();
-		}
-	}
+// 	onMouseMove(event) {
+// 		const rect = this.el.getBoundingClientRect();
+// 		this.targetX = event.clientX - rect.left;
+// 		this.targetY = event.clientY - rect.top;
+// 		if (!this.animationRunning) {
+// 			this.animationRunning = true;
+// 			this.runAnimation();
+// 		}
+// 	}
 
-	runAnimation() {
-		if (!this.animationRunning) return;
+// 	runAnimation() {
+// 		if (!this.animationRunning) return;
 
-		const newPosX = lerp(this.lastX, this.targetX, 0.1);
-		const newPosY = lerp(this.lastY, this.targetY, 0.1);
-		this.lastX = newPosX;
-		this.lastY = newPosY;
+// 		const newPosX = lerp(this.lastX, this.targetX, 0.1);
+// 		const newPosY = lerp(this.lastY, this.targetY, 0.1);
+// 		this.lastX = newPosX;
+// 		this.lastY = newPosY;
 
-		const xCoeff = (newPosX - this.el.offsetWidth / 2) / (this.el.offsetWidth / 2);
-		const yCoeff = (this.el.offsetHeight / 2 - newPosY) / (this.el.offsetHeight / 2);
+// 		const xCoeff = (newPosX - this.el.offsetWidth / 2) / (this.el.offsetWidth / 2);
+// 		const yCoeff = (this.el.offsetHeight / 2 - newPosY) / (this.el.offsetHeight / 2);
 
-		this.el.style.transform = `rotateY(${xCoeff * 25}deg) rotateX(${yCoeff * 25}deg)`;
+// 		this.el.style.transform = `rotateY(${xCoeff * 25}deg) rotateX(${yCoeff * 25}deg)`;
 
-		if (Math.abs(this.lastX - this.targetX) < 1 && Math.abs(this.lastY - this.targetY) < 1) {
-			this.animationRunning = false;
-		} else {
-			requestAnimationFrame(this.runAnimation);
-		}
-	}
-}
+// 		if (Math.abs(this.lastX - this.targetX) < 1 && Math.abs(this.lastY - this.targetY) < 1) {
+// 			this.animationRunning = false;
+// 		} else {
+// 			requestAnimationFrame(this.runAnimation);
+// 		}
+// 	}
+// }
 
-// Инициализация для всех блоков с классом .arsenal-image-sl__slide
-document.querySelectorAll('.arsenal-image-sl__slide').forEach(slide => {
-	new BlockFollower(slide);
-});
+// // Инициализация для всех блоков с классом .arsenal-image-sl__slide
+// document.querySelectorAll('.arsenal-image-sl__slide').forEach(slide => {
+// 	new BlockFollower(slide);
+// });
 //========================================================================================================================================================
 
 
@@ -354,3 +354,120 @@ for (let i = 0; i < bg.length; i++) {
 		bg[i].style.transform = 'translate(-' + x * 50 + 'px, -' + y * 50 + 'px)';
 	});
 }
+//========================================================================================================================================================
+
+// New Slider
+// function lerp({ x, y }, { x: targetX, y: targetY }) {
+// 	const fraction = 0.1;
+// 	x += (targetX - x) * fraction;
+// 	y += (targetY - y) * fraction;
+// 	return { x, y };
+// }
+
+// class Slider {
+// 	constructor(el) {
+// 		this.el = el;
+// 		this.contentEl = el.querySelector('.arsenal-image-sl__slide');
+// 		this.onMouseMove = this.onMouseMove.bind(this);
+// 		this.activeImg = el.querySelector('.swiper-slide-active');
+// 		this.images = el.getElementsByTagName('img');
+// 		this.onResize();
+// 		this.lastX = this.lastY = this.targetX = this.targetY = 0;
+// 	}
+
+// 	onResize() {
+// 		const htmlStyles = getComputedStyle(document.documentElement);
+// 		const mobileBreakpoint = htmlStyles.getPropertyValue('--mobile-bkp');
+// 		const isMobile = this.isMobile = matchMedia(`only screen and (max-width: ${mobileBreakpoint})`).matches;
+// 		this.halfWidth = this.el.offsetWidth / 2;
+// 		this.halfHeight = this.el.offsetHeight / 2;
+// 		this.zDistance = htmlStyles.getPropertyValue('--z-distance');
+// 		if (!isMobile && !this.mouseWatched) {
+// 			this.mouseWatched = true;
+// 			this.el.addEventListener('mousemove', this.onMouseMove);
+// 			this.contentEl.style.setProperty('transform', `translateZ(${this.zDistance})`);
+// 		} else if (isMobile && this.mouseWatched) {
+// 			this.mouseWatched = false;
+// 			this.el.removeEventListener('mousemove', this.onMouseMove);
+// 			this.contentEl.style.setProperty('transform', 'none');
+// 		}
+// 	}
+
+// 	getMouseCoefficients({ clientX, clientY } = {}) {
+// 		const halfWidth = this.halfWidth;
+// 		const halfHeight = this.halfHeight;
+// 		const xCoeff = ((clientX || this.targetX) - halfWidth) / halfWidth;
+// 		const yCoeff = (halfHeight - (clientY || this.targetY)) / halfHeight;
+// 		return { xCoeff, yCoeff }
+// 	}
+
+// 	onMouseMove({ clientX, clientY }) {
+// 		this.targetX = clientX - this.el.getBoundingClientRect().left;
+// 		this.targetY = clientY - this.el.getBoundingClientRect().top;
+// 		if (!this.animationRunning) {
+// 			this.animationRunning = true;
+// 			this.runAnimation();
+// 		}
+// 	}
+
+// 	runAnimation() {
+// 		if (this.animationStopped) {
+// 			this.animationRunning = false;
+// 			return;
+// 		}
+// 		const maxX = 10;
+// 		const maxY = 10;
+// 		const newPos = lerp({
+// 			x: this.lastX,
+// 			y: this.lastY
+// 		}, {
+// 			x: this.targetX,
+// 			y: this.targetY
+// 		});
+// 		const { xCoeff, yCoeff } = this.getMouseCoefficients({
+// 			clientX: newPos.x,
+// 			clientY: newPos.y
+// 		});
+// 		this.lastX = newPos.x;
+// 		this.lastY = newPos.y;
+// 		this.positionImage({ xCoeff, yCoeff });
+// 		this.contentEl.style.setProperty('transform', `
+// 				translateZ(${this.zDistance})
+// 				rotateX(${maxY * yCoeff}deg)
+// 				rotateY(${maxX * xCoeff}deg)
+// 		  `);
+// 		if (this.reachedFinalPoint) {
+// 			this.animationRunning = false;
+// 		} else {
+// 			requestAnimationFrame(this.runAnimation.bind(this));
+// 		}
+// 	}
+
+// 	get reachedFinalPoint() {
+// 		const lastX = ~~this.lastX;
+// 		const lastY = ~~this.lastY;
+// 		const targetX = this.targetX;
+// 		const targetY = this.targetY;
+// 		return (lastX == targetX || lastX - 1 == targetX || lastX + 1 == targetX)
+// 			&& (lastY == targetY || lastY - 1 == targetY || lastY + 1 == targetY);
+// 	}
+
+// 	positionImage({ xCoeff, yCoeff }) {
+// 		const maxImgOffset = 1;
+// 		const currentImage = this.el.querySelector('.swiper-slide-active img');
+// 		if (currentImage) {
+// 			currentImage.style.setProperty('transform', `
+// 					 translateX(${maxImgOffset * -xCoeff}em)
+// 					 translateY(${maxImgOffset * yCoeff}em)
+// 				`);
+// 		}
+// 	}
+// }
+
+// const sliderEl = document.querySelector('.arsenal-image-sl__item');
+// const slider = new Slider(sliderEl);
+//========================================================================================================================================================
+
+// document.querySelector('.history__btn').addEventListener('click', () => {
+// 	document.querySelector('.card-history').classList.toggle('_active');
+// });

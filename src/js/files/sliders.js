@@ -114,6 +114,98 @@ function initSliders() {
 		});
 	}
 
+	if (document.querySelector('.main-history__slider')) {
+		const swiper = new Swiper('.main-history__slider', {
+			// new Swiper('.swiper', {
+			// Подключаем модули слайдера
+			// для конкретного случая
+			modules: [Navigation, Pagination, EffectFade],
+
+			// effect: 'fade',
+			// autoplay: {
+			// 	delay: 3000,
+			// 	disableOnInteraction: false,
+			// },
+
+			observer: true,
+			observeParents: true,
+			// slidesPerView: 5,
+			spaceBetween: 10,
+			// autoHeight: true,
+			// paginationClickable: true,
+			// effect: 'coverflow',
+			// loop: true,
+			centeredSlides: true,
+			initialSlide: 1,
+			slidesPerView: 6.6,
+			slidesPerView: 'auto',
+			// lazyLoading: true,
+			// lazyLoadingInPrevNext: true,
+			speed: 2000,
+			// additionalSlide: 1,
+			// coverflow: {
+			// 	rotate: 0,
+			// 	stretch: 150,
+			// 	depth: 200,
+			// 	modifier: 1,
+			// 	slideShadows: false,
+			// },
+			on: {
+				// slideChange: function () {
+				// 	// Обновляем стили при смене слайда
+				// 	swiper.slides.forEach(slide => {
+				// 		slide.style.width = '200px';
+				// 	});
+				// 	swiper.slides[swiper.activeIndex].style.width = '800px';
+				// }
+			}
+			//preloadImages: false,
+			// lazy: true,
+			// Dotts
+			// pagination: {
+			// 	el: '.slider-new-detail__pagging',
+			// 	clickable: true,
+			// },
+			// Arrows
+			// navigation: {
+			// 	nextEl: '.slider-new-detail__buttons .slider-arrow_next',
+			// 	prevEl: '.slider-new-detail__buttons .slider-arrow_prev',
+			// },
+			// breakpoints: {
+			// 	375: {
+			// 		slidesPerView: 1.3,
+			// 		// autoHeight: true,
+			// 	},
+			// 	480: {
+			// 		slidesPerView: 1.8,
+			// 		spaceBetween: 10,
+			// 		// autoHeight: true,
+			// 	},
+			// 	540: {
+			// 		slidesPerView: 2.3,
+			// 		spaceBetween: 10,
+			// 		// autoHeight: true,
+			// 	},
+			// 	768: {
+			// 		slidesPerView: 2.3,
+			// 		spaceBetween: 10,
+			// 	},
+			// 	992: {
+			// 		slidesPerView: 2.8,
+			// 		spaceBetween: 10,
+			// 	},
+			// 	1024: {
+			// 		slidesPerView: 3,
+			// 		spaceBetween: 17,
+			// 	},
+			// },
+			// on: {
+
+			// }
+		});
+	}
+
+
 	if (document.querySelector('.main-maps-game__slider')) {
 		new Swiper('.main-maps-game__slider', {
 			// Подключаем модули слайдера
@@ -304,10 +396,10 @@ function initSliders() {
 	if (document.querySelector('.arsenal-slider')) {
 		const swiper = new Swiper('.arsenal-slider', {
 			modules: [Navigation, Pagination, Thumbs, EffectFade],
-			effect: 'fade',
-			fadeEffect: {
-				crossFade: true
-			},
+			// effect: 'fade',
+			// fadeEffect: {
+			// 	crossFade: true
+			// },
 			observer: true,
 			observeParents: true,
 			slidesPerView: 1,
