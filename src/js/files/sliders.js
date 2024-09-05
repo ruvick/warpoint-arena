@@ -7,7 +7,7 @@
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
-import Swiper, { Navigation, Pagination, EffectFade, Thumbs, Controller } from 'swiper';
+import Swiper, { Navigation, Pagination, EffectFade, Thumbs, Controller, Autoplay } from 'swiper';
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -119,13 +119,13 @@ function initSliders() {
 			// new Swiper('.swiper', {
 			// Подключаем модули слайдера
 			// для конкретного случая
-			modules: [Navigation, Pagination, EffectFade],
+			modules: [Navigation, Pagination, EffectFade, Autoplay],
 
 			// effect: 'fade',
-			// autoplay: {
-			// 	delay: 3000,
-			// 	disableOnInteraction: false,
-			// },
+			autoplay: {
+				delay: 1000,
+				disableOnInteraction: false,
+			},
 
 			observer: true,
 			observeParents: true,
@@ -134,14 +134,14 @@ function initSliders() {
 			// autoHeight: true,
 			// paginationClickable: true,
 			// effect: 'coverflow',
-			// loop: true,
+			loop: true,
 			centeredSlides: true,
-			initialSlide: 1,
-			slidesPerView: 6.6,
-			slidesPerView: 'auto',
+			// initialSlide: 2,
+			slidesPerView: 6.5,
+			// slidesPerView: 'auto',
 			// lazyLoading: true,
 			// lazyLoadingInPrevNext: true,
-			speed: 2000,
+			speed: 1500,
 			// additionalSlide: 1,
 			// coverflow: {
 			// 	rotate: 0,
@@ -150,15 +150,15 @@ function initSliders() {
 			// 	modifier: 1,
 			// 	slideShadows: false,
 			// },
-			on: {
-				// slideChange: function () {
-				// 	// Обновляем стили при смене слайда
-				// 	swiper.slides.forEach(slide => {
-				// 		slide.style.width = '200px';
-				// 	});
-				// 	swiper.slides[swiper.activeIndex].style.width = '800px';
-				// }
-			}
+			// on: {
+			// 	// slideChange: function () {
+			// 	// 	// Обновляем стили при смене слайда
+			// 	// 	swiper.slides.forEach(slide => {
+			// 	// 		slide.style.width = '200px';
+			// 	// 	});
+			// 	// 	swiper.slides[swiper.activeIndex].style.width = '800px';
+			// 	// }
+			// }
 			//preloadImages: false,
 			// lazy: true,
 			// Dotts
@@ -167,10 +167,10 @@ function initSliders() {
 			// 	clickable: true,
 			// },
 			// Arrows
-			// navigation: {
-			// 	nextEl: '.slider-new-detail__buttons .slider-arrow_next',
-			// 	prevEl: '.slider-new-detail__buttons .slider-arrow_prev',
-			// },
+			navigation: {
+				nextEl: '.main-history__buttons .slider-arrow_next',
+				prevEl: '.main-history__buttons .slider-arrow_prev',
+			},
 			// breakpoints: {
 			// 	375: {
 			// 		slidesPerView: 1.3,
