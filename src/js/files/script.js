@@ -471,3 +471,4 @@ for (let i = 0; i < bg.length; i++) {
 // document.querySelector('.history__btn').addEventListener('click', () => {
 // 	document.querySelector('.card-history').classList.toggle('_active');
 // });
+//========================================================================================================================================================

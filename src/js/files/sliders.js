@@ -116,93 +116,47 @@ function initSliders() {
 
 	if (document.querySelector('.main-history__slider')) {
 		const swiper = new Swiper('.main-history__slider', {
-			// new Swiper('.swiper', {
-			// Подключаем модули слайдера
-			// для конкретного случая
 			modules: [Navigation, Pagination, EffectFade, Autoplay],
-
-			// effect: 'fade',
-			autoplay: {
-				delay: 1000,
-				disableOnInteraction: false,
-			},
-
 			observer: true,
 			observeParents: true,
-			// slidesPerView: 5,
-			spaceBetween: 10,
-			// autoHeight: true,
-			// paginationClickable: true,
-			// effect: 'coverflow',
 			loop: true,
 			centeredSlides: true,
-			// initialSlide: 2,
-			slidesPerView: 6.5,
-			// slidesPerView: 'auto',
-			// lazyLoading: true,
-			// lazyLoadingInPrevNext: true,
-			speed: 1500,
-			// additionalSlide: 1,
-			// coverflow: {
-			// 	rotate: 0,
-			// 	stretch: 150,
-			// 	depth: 200,
-			// 	modifier: 1,
-			// 	slideShadows: false,
-			// },
-			// on: {
-			// 	// slideChange: function () {
-			// 	// 	// Обновляем стили при смене слайда
-			// 	// 	swiper.slides.forEach(slide => {
-			// 	// 		slide.style.width = '200px';
-			// 	// 	});
-			// 	// 	swiper.slides[swiper.activeIndex].style.width = '800px';
-			// 	// }
-			// }
-			//preloadImages: false,
-			// lazy: true,
-			// Dotts
-			// pagination: {
-			// 	el: '.slider-new-detail__pagging',
-			// 	clickable: true,
-			// },
-			// Arrows
+			// initSliders: 5,
+			slidesPerView: 1.3,
+			spaceBetween: 5,
+			speed: 1100,
 			navigation: {
 				nextEl: '.main-history__buttons .slider-arrow_next',
 				prevEl: '.main-history__buttons .slider-arrow_prev',
 			},
-			// breakpoints: {
-			// 	375: {
-			// 		slidesPerView: 1.3,
-			// 		// autoHeight: true,
-			// 	},
-			// 	480: {
-			// 		slidesPerView: 1.8,
-			// 		spaceBetween: 10,
-			// 		// autoHeight: true,
-			// 	},
-			// 	540: {
-			// 		slidesPerView: 2.3,
-			// 		spaceBetween: 10,
-			// 		// autoHeight: true,
-			// 	},
-			// 	768: {
-			// 		slidesPerView: 2.3,
-			// 		spaceBetween: 10,
-			// 	},
-			// 	992: {
-			// 		slidesPerView: 2.8,
-			// 		spaceBetween: 10,
-			// 	},
-			// 	1024: {
-			// 		slidesPerView: 3,
-			// 		spaceBetween: 17,
-			// 	},
-			// },
-			// on: {
-
-			// }
+			breakpoints: {
+				375: {
+					slidesPerView: 2.3,
+				},
+				768: {
+					slidesPerView: 2.8,
+					spaceBetween: 10,
+				},
+				992: {
+					slidesPerView: 5.6,
+					spaceBetween: 10,
+				},
+				1280: {
+					slidesPerView: 5.6,
+				},
+				1360: {
+					slidesPerView: 7.6,
+					spaceBetween: 10,
+				},
+			},
 		});
+
+		// Добавляем обработчик клика на слайды
+		// swiper.slides.forEach((slide, index) => {
+		// 	slide.addEventListener('click', () => {
+		// 		swiper.slideToLoop(index);
+		// 	});
+		// });
 	}
 
 
@@ -347,14 +301,14 @@ function initSliders() {
 	if (document.querySelector('.main-modes__slider') && document.querySelector('.thumbs-images__slider')) {
 		// Инициализация слайдера с миниатюрами
 		const thumbsSwiper = new Swiper('.thumbs-images__slider', {
-			modules: [Navigation, Pagination, EffectFade],
+			modules: [Navigation, Pagination, EffectFade, Thumbs, Controller,],
 			observer: true,
 			observeParents: true,
 			slidesPerView: 3,
 			spaceBetween: 0,
 			speed: 1500,
 			// centeredSlides: true,
-			loop: true,
+			// loop: true,
 			effect: 'fade',
 			fadeEffect: {
 				crossFade: true
