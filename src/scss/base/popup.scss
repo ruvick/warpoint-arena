@@ -82,8 +82,8 @@ body.popup-show::after {
 			top: 6%;
 			right: 3%;
 			z-index: 55;
-			@include adaptiveValue("width", 60, 25);
-			@include adaptiveValue("height", 60, 25);
+			@include adaptiveValue("width", 36, 15);
+			@include adaptiveValue("height", 36, 15);
 			svg {
 				width: 100%;
 				height: 100%;

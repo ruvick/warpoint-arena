@@ -6,6 +6,8 @@ window.onload = function () {
 
 	const navigationBoxList = document.querySelector('.navigation-box__list');
 
+	if (!navigationBoxList) return
+
 	// Добавляем обработчики событий mouseover и mouseout только для десктопных устройств
 	if (!isMobile.any()) {
 		navigationBoxList.addEventListener('mouseover', function () {
@@ -35,6 +37,14 @@ window.onload = function () {
 	}
 
 };
+
+// Вернутся назад 
+const backButton = document.querySelector('.back-btn');
+if (backButton) {
+		backButton.addEventListener('click', function() {
+				window.history.back();
+		});
+}
 //========================================================================================================================================================
 
 // Slider Arsenal 
