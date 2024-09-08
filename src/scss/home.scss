@@ -2498,14 +2498,29 @@
 	.slider-arrow {
 		position: absolute;
 		bottom: rem(47);
+		@media (max-width: em(1280)){
+			bottom: rem(43);
+		}
+		@media (max-width: em(1200)){
+			bottom: rem(40);
+		}
+		@media (max-width: em(1024)){
+			display: none;
+		}
 	}
 
 	&__arrow-prev {
 		left: 40%;
+		@media (max-width: em(1440)){
+			left: 39%;  
+		}
 	}
 
 	&__arrow-next {
 		right: 40%; 
+		@media (max-width: em(1440)){
+			right: 39%;  
+		}
 	}
 }
 
