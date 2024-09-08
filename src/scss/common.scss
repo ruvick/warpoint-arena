@@ -169,6 +169,42 @@
 }
 //========================================================================================================================================================
 
+.line-box {
+	position: absolute;
+	z-index: 55;
+	@media (max-width: em(1440)){
+		  display: none;
+	}
+	&_left {
+		left: 10%;
+		@media (max-width: em(1700)){
+			left: 3%;
+		}
+	}
+
+	&_right {
+		right: 10%;
+		@media (max-width: em(1700)){
+			right: 3%;
+		}
+	}
+	img {
+		width: auto;
+		height: auto;
+		object-fit: contain;
+	}
+}
+.line-box__text {
+	@include adaptiveValue("font-size", 185, 5);
+	font-weight: 700;
+	line-height: math.div(185, 185);
+	color: #c3c3c3;
+}
+.line-box__text {
+	transform: rotate(-90deg);
+}
+//========================================================================================================================================================
+
 .date-page {
 	display: inline-flex;
 	align-items: center;

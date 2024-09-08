@@ -191,9 +191,12 @@ body {
 	&__history {
 		@include adaptiveValue("padding-top", 35, 35);
 		@include adaptiveValue("padding-bottom", 50, 35);
+    margin-top: rem(-135);
+    position: relative;
+    z-index: 50;
 	}
 	&__arsenal {
-		@include adaptiveValue("padding-top", 100, 35);
+		@include adaptiveValue("padding-top", 15, 5);
 		@include adaptiveValue("padding-bottom", 50, 35);
 	}
 	&__arena-modes {
@@ -205,7 +208,7 @@ body {
 		@include adaptiveValue("padding-bottom", 133, 35);
 	}
 	&__maps-game {
-		@include adaptiveValue("padding-top", 135, 35);
+		@include adaptiveValue("padding-top", 35, 15);
 		@include adaptiveValue("padding-bottom", 70, 35);
 	}
 	&__news {

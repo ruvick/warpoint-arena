@@ -119,9 +119,9 @@ function initSliders() {
 			modules: [Navigation, Pagination, EffectFade, Autoplay],
 			observer: true,
 			observeParents: true,
-			loop: true,
+			// loop: true,
 			centeredSlides: true,
-			// initSliders: 5,
+			initialSlide: 3,
 			slidesPerView: 1.3,
 			spaceBetween: 5,
 			speed: 1100,
@@ -152,11 +152,11 @@ function initSliders() {
 		});
 
 		// Добавляем обработчик клика на слайды
-		// swiper.slides.forEach((slide, index) => {
-		// 	slide.addEventListener('click', () => {
-		// 		swiper.slideToLoop(index);
-		// 	});
-		// });
+		swiper.slides.forEach((slide, index) => {
+			slide.addEventListener('click', () => {
+				swiper.slideToLoop(index);
+			});
+		});
 	}
 
 
@@ -308,7 +308,7 @@ function initSliders() {
 			spaceBetween: 0,
 			speed: 1500,
 			// centeredSlides: true,
-			// loop: true,
+			loop: true,
 			effect: 'fade',
 			fadeEffect: {
 				crossFade: true

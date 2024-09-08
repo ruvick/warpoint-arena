@@ -346,14 +346,14 @@ document.querySelectorAll('.arsenal-thumbs__body').forEach((arsenalThumbsBody, i
 //========================================================================================================================================================
 
 // Parallax 
-let bg = document.querySelectorAll('.mouse-parallax');
-for (let i = 0; i < bg.length; i++) {
-	window.addEventListener('mousemove', function (e) {
-		let x = e.clientX / window.innerWidth;
-		let y = e.clientY / window.innerHeight;
-		bg[i].style.transform = 'translate(-' + x * 50 + 'px, -' + y * 50 + 'px)';
-	});
-}
+// let bg = document.querySelectorAll('.mouse-parallax');
+// for (let i = 0; i < bg.length; i++) {
+// 	window.addEventListener('mousemove', function (e) {
+// 		let x = e.clientX / window.innerWidth;
+// 		let y = e.clientY / window.innerHeight;
+// 		bg[i].style.transform = 'translate(-' + x * 50 + 'px, -' + y * 50 + 'px)';
+// 	});
+// }
 //========================================================================================================================================================
 
 // New Slider

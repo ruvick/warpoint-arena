@@ -370,9 +370,14 @@
 //========================================================================================================================================================
 
 .news {
-
+	position: relative;
+	.line-box {
+		top: rem(100);
+		right: rem(60);
+		z-index: 5;
+	}
 	// .news__container
-	&__container {
+	&__container { 
 	}
 
 	// .news__title
@@ -388,6 +393,8 @@
 
 	// .news__inner
 	&__inner {
+		position: relative;
+		z-index: 55;
 		display: grid; 
 		grid-template-columns: repeat(auto-fill, minmax(rem(360), 1fr)); 
 		@include adaptiveValue("gap", 14, 10);
@@ -676,6 +683,20 @@
 		background: url('../img/faq/faq-grid.svg') 0 0 no-repeat;
 	}
 
+		.line-box {
+
+			&_left {
+			}
+
+			&_right {
+			}
+
+			&__text {
+				transform: rotate(-90deg) translateY(50px) translateX(-150px);
+			}
+	}
+
+
 	// .faq__container
 	&__container {
 		position: relative;
@@ -805,7 +826,19 @@
 //========================================================================================================================================================
 
 .about-game {
+	position: relative;
 	background-color: #D9D9D9;
+
+	.line-box {
+		position: absolute;
+		&_left {
+			top: rem(95);
+		}
+	
+		&_right {
+			bottom: rem(95);
+		}
+	}
 
 	// .about-game__container
 	&__container {
@@ -864,6 +897,12 @@
 		z-index: 3;
 	}
 
+	.line-box_right {
+		right: -115px;
+		bottom: 35%;
+		transform: translateY(-35%);
+		z-index: 55;
+	}
 	// .info-game__container
 	&__container {
 		max-width: rem(1380);
@@ -1414,19 +1453,19 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	// &::after{
-	// 	position: absolute;
-	// 	top: 0;
-	// 	left: 0;
-	// 	width: 100%;
-	// 	height: 100%;
-	// 	content:''; 
-	// 	// background: url('../img/heroes/heroes-bg.png') 0 0 no-repeat;
-	// 	background-image: url(../img/heroes/heroes-banner-img.png);
-	// 	background-size: cover;
-	// 	height: 100%;
-	// 	z-index: 1;
-	// }
+	&::after{
+    position: absolute;
+    /* top: 0; */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background-image: url(../img/heroes/heroes-bg-red-bt.png);
+    background-size: cover;
+    height: 50%;
+    z-index: 1;
+    bottom: 0;
+	}
 	&::before{
 		content:''; 
 		position: absolute;
@@ -1495,6 +1534,8 @@
 		z-index: 1;
 		width: 100%;
 		height: 100%;
+		mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 		img {
 			width: 100%;
 			height: 100%;
@@ -1513,8 +1554,13 @@
 }
 //========================================================================================================================================================
 
-.history {
+.heroes-wrap {
 	background-color: #BA2E35;
+}
+//========================================================================================================================================================
+
+.history {
+	// background-color: #BA2E35;
 	// .history__container
 	&__container {
 		max-width: rem(1620);
@@ -1527,6 +1573,8 @@
 
 .history__main {
 	@include adaptiveValue("padding-top", 46, 20);
+	// background-color: #BA2E35;
+
 }
 
 .history__card {
@@ -1540,15 +1588,16 @@
 	// justify-content: center;
 	// gap: 10px;
 	// @media (min-width:em(992)){
-		margin-left: -15%;
-		@media (max-width: em(374)){
-			margin-left: -9%; 
-		}
+		margin-left: -15vw;
+		// @media (max-width: em(374)){
+		// 	margin-left: -9%; 
+		// }
 	// }
 }
 .main-history__slide {
 	width: 100%;
 	transition: all 1s ease 0s;
+	cursor: pointer;
 }
 
 .card-history {
@@ -1702,6 +1751,22 @@
 			border: none;
 			// visibility: hidden;
 		}
+	}
+	@media (any-hover: hover){
+		 &:hover { 
+			.card-history__img {
+				img {
+					transform: scale(1.05);
+				}
+			}
+			&.swiper-slide-active {
+				.card-history__img {		
+					img {
+						transform: scale(1);	
+					}
+				}
+			}
+		} 
 	}
 }
 
@@ -2421,7 +2486,7 @@
 		@media (any-hover: hover){
 			 &:hover { 
 			 color: #fff; 
-			 border: rem(2) solid #fff;
+			 border: rem(2) solid #fff; 
 		  } 
 		}
 	}
