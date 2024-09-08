@@ -197,8 +197,8 @@ function initSliders() {
 			},
 			// Arrows
 			navigation: {
-				nextEl: '.main-maps-game__buttons .slider-arrow_next',
-				prevEl: '.main-maps-game__buttons .slider-arrow_prev',
+				nextEl: '.main-maps-game__arrow-next',
+				prevEl: '.main-maps-game__arrow-prev',
 			},
 			breakpoints: {
 				375: {

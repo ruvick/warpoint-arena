@@ -2365,6 +2365,7 @@
 
 	// .main-maps-game__slider
 	&__slider {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 	}
@@ -2473,24 +2474,42 @@
 
 	// .slide-maps-game__btn
 	&__btn {
+		max-width: rem(295);
 		font-family: 'Gilroy', serif;
 		@include adaptiveValue("font-size", 20, 14);
 		font-weight: 500;
 		line-height: math.div(24.26, 20);
 		letter-spacing: 0.25em;
 		width: 100%;
-		background-color: inherit;
-		color: #626164;
+		background-color: #575558;
+		color: #1F1D21;
 		border: rem(2) solid #626164;
 		transition: $mainTransition;
 		@media (any-hover: hover){
 			 &:hover { 
 			 color: #fff; 
-			 border: rem(2) solid #fff; 
+			//  border: rem(2) solid #fff; 
 		  } 
 		}
 	}
 }
+
+.main-maps-game {
+	.slider-arrow {
+		position: absolute;
+		bottom: rem(47);
+	}
+
+	&__arrow-prev {
+		left: 40%;
+	}
+
+	&__arrow-next {
+		right: 40%; 
+	}
+}
+
+
 
 
 
