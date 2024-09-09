@@ -2501,8 +2501,8 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: 158px;
-		height: 82px;
+		@include adaptiveValue("width", 158, 85);
+		@include adaptiveValue("height", 158, 45);
 		transform: translate(-50%, -50%);
 		overflow: hidden;
 		svg {

@@ -64,7 +64,7 @@ flsFunctions.tabs();
 Сниппет (HTML): pl
 */
 // Для включения ??? (подсказок в консоли) передать true * /
-flsFunctions.initPopups(false);
+flsFunctions.initPopups(true);
 
 // Работа с формами ========================================================================================================================================================================================================================================================
 import * as flsForms from "./files/forms/forms.js";
@@ -125,7 +125,7 @@ import "./files/sliders.js";
 Документация плагина: https://github.com/Grsmto/simplebar/tree/master/packages/simplebar
 Сниппет(HTML): 
 */
-import './files/scroll/simplebar.js';
+// import './files/scroll/simplebar.js';
 
 /*
 Ленивая (отложенная) загрузка картинок
