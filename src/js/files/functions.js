@@ -456,29 +456,31 @@ export function tabs() {
 // Модуь работы с меню (бургер) =======================================================================================================================================================================================================================
 export function menuInit() {
 	let iconMenu = document.querySelector(".icon-menu");
+	let headerBox = document.querySelector(".header__box");
+
 	if (iconMenu) {
-		iconMenu.addEventListener("click", function (e) {
-			if (bodyLockStatus) {
-				bodyLockToggle();
-				document.documentElement.classList.toggle("menu-open");
-			}
-		});
+			iconMenu.addEventListener("click", function (e) {
+					if (bodyLockStatus) {
+							bodyLockToggle();
+							document.documentElement.classList.toggle("menu-open");
+					}
+			});
 	}
 
 	// Закрытие меню при клике вне элемента с классом header__box
-	// document.addEventListener("click", function (e) {
-	// 	const headerBox = document.querySelector(".header__box");
-	// 	const popup = document.querySelector(".popup");
-	// 	if (!headerBox.contains(e.target) && !iconMenu.contains(e.target)) {
-	// 		menuClose();
-	// 	}
-	// });
+	document.addEventListener("click", function (e) {
+			if (document.documentElement.classList.contains("menu-open")) {
+					if (!headerBox.contains(e.target) && !iconMenu.contains(e.target)) {
+							menuClose();
+					}
+			}
+	});
 
 	// Закрытие меню при нажатии клавиши ESC
 	document.addEventListener("keydown", function (e) {
-		if (e.key === "Escape" && document.documentElement.classList.contains("menu-open")) {
-			menuClose();
-		}
+			if (e.key === "Escape" && document.documentElement.classList.contains("menu-open")) {
+					menuClose();
+			}
 	});
 }
 
@@ -574,7 +576,7 @@ data-youtube - Атрибут для кода youtube
 Сниппет (HTML): pl
 */
 import { Popup } from "../libs/popup.js";
-export const initPopups = (logging = false, init = true) => new Popup({ logging: logging, init: init });
+export const initPopups = (logging = true, init = true) => new Popup({ logging: logging, init: init });
 
 //================================================================================================================================================================================================================================================================================================================
 // Прочие полезные функции ================================================================================================================================================================================================================================================================================================================
