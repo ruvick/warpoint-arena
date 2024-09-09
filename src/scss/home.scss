@@ -1803,8 +1803,8 @@
 	// .arsenal__images
 	&__images {
 		@include adaptiveValue("margin-top", 48, 15);
-		@include adaptiveValue("padding-top", 66, 25);
-		@include adaptiveValue("padding-bottom", 66, 25);
+		@include adaptiveValue("padding-top", 66, 25); 
+		@include adaptiveValue("padding-bottom", 35, 15);
 	}
 }
 
@@ -1831,7 +1831,7 @@
 	// .images-arsenal__actions
 	&__actions {
 		&:not(:last-child){
-			@include adaptiveValue("margin-bottom", 60, 30);
+			@include adaptiveValue("margin-bottom", 60, 20);
 		}
 	}
 
@@ -2016,7 +2016,7 @@
 	justify-content: center;
 	align-items: flex-end;
 	@include adaptiveValue("gap", 20, 8);
-	@include adaptiveValue("padding-top", 30, 15);
+	@include adaptiveValue("padding-top", 20, 15);
 }
 .slide-arsenal__body-inner {
 	display: grid;
@@ -2334,6 +2334,71 @@
 // 	gap: rem(30);
 // 	width: 100%;
 // }
+
+.images-arsenal__tabs {
+	position: relative;
+	.tabs__navigation {
+		display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    gap: 0.625rem;
+		@media (max-width: em(768)){
+        display: flex;
+        overflow: auto;
+        padding: 0 0.625rem;
+			}
+		}
+	.tabs__container {
+		max-width: rem(1066);
+		@media (max-width: em(768)){
+			padding: 0;
+	}
+	}
+	.tabs__title {
+		position: relative;
+    font-family: "Gilroy", sans-serif;
+		font-size: rem(12);
+		font-weight: 700;
+		line-height: math.div(14.86, 12);
+		letter-spacing: 0.05em;
+		text-align: center;
+    padding-right: 0.3125rem;
+    padding-left: 0.3125rem;
+    text-transform: uppercase;
+    width: 100%;
+    white-space: nowrap;
+    color: #575558;
+    background-color: #1F1D21;
+    overflow: hidden;
+    transition: all 0.4s ease 0s;
+		border-radius: 0px;
+    border: none;
+		@media (max-width: em(768)){
+			flex: 0 0 25%;
+		}
+		@media (max-width: em(700)){
+			flex: 0 0 35%;
+		}
+		@media (max-width: em(515)){
+			flex: 0 0 45%;
+		}
+		@media (max-width: em(375)){
+			flex: 0 0 55%;
+		}
+	}
+	.tabs__title._tab-active {
+    border: none;
+    color: #D9D9D9;
+    background-color: #E13239;
+	}
+	.tabs__content {
+    border: none; 
+    padding: 0; 
+	}
+}
+.tabs__navigation::-webkit-scrollbar-thumb,
+.tabs__navigation::-webkit-scrollbar {
+	display: none;
+}
 //========================================================================================================================================================
 
 .maps-game {
