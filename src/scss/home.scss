@@ -557,8 +557,9 @@
 
 .battle {
 	position: relative;
-	background-color: red;
-	background: url('../img/battle/battle-img-bg.jpg') 0 0 no-repeat;
+	background-color: #b72b34;
+	background-repeat: no-repeat;
+	background-position: 0 0;
 	background-size: cover !important;
 	// background-attachment: fixed;
 	overflow: hidden;
@@ -1391,9 +1392,17 @@
 		img {
 			width: 100%;
 			object-position: top;
+			transition: $mainTransition;
 		}
 		@media (max-width: em(991)){
 			  opacity: 0;
+		}
+		@media (any-hover: hover){
+			 &:hover { 
+			  img {
+					transform: scale(1.02);
+				}
+			} 
 		}
 	}
 
@@ -1417,6 +1426,7 @@
 		width: 100%;
 		border-top: rem(7) solid #BA2E35;
 		background-color: #1F1D21;
+		transition: $mainTransition;
 		@media (max-width: em(991)){
 			  text-align: center;
 		}
@@ -1440,6 +1450,30 @@
 	// 	height: 117%;
  	// }
 }
+
+// .thumbs-images__slider {
+// 	.swiper-slide {
+// 		opacity: 0;
+// 		transition: opacity 0.5s ease;
+// 	}
+	
+// 	.swiper-slide.swiper-slide-active {
+// 		opacity: 1;
+// 	}
+// }
+
+// .animate {
+// 	animation: fadeIn 0.5s forwards;
+// }
+
+// @keyframes fadeIn {
+// 	from {
+// 			opacity: 0;
+// 	}
+// 	to {
+// 			opacity: 1;
+// 	}
+// }
 //========================================================================================================================================================
 
 .heroes { 
@@ -2519,7 +2553,7 @@
 		justify-content: center;
 		align-items: center;
 		@include adaptiveValue("width", 158, 85);
-		@include adaptiveValue("height", 158, 45);
+		@include adaptiveValue("height", 82, 45);
 		transform: translate(-50%, -50%);
 		overflow: hidden;
 		svg {

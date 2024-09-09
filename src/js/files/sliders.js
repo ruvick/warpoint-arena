@@ -315,6 +315,16 @@ function initSliders() {
 			},
 			slideToClickedSlide: true,
 			// другие настройки
+			on: {
+        slideChangeTransitionStart: function () {
+            const currentSlide = this.slides[this.activeIndex];
+            currentSlide.classList.add('animate');
+        },
+        slideChangeTransitionEnd: function () {
+            const previousSlide = this.slides[this.previousIndex];
+            previousSlide.classList.remove('animate');
+        },
+    },
 		});
 
 		// Инициализация основного слайдера

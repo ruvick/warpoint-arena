@@ -477,7 +477,17 @@ document.querySelectorAll('.arsenal-thumbs__body').forEach((arsenalThumbsBody, i
 // const slider = new Slider(sliderEl);
 //========================================================================================================================================================
 
-// document.querySelector('.history__btn').addEventListener('click', () => {
-// 	document.querySelector('.card-history').classList.toggle('_active');
+// Preloader
+// function addLoadedClass() {
+// 	// Здесь ваш код, который выполняется при загрузке
+// 	console.log('Контент загружен');
+	
+// 	// Скрыть прелоадер и показать контент
+// 	document.getElementById('preloader').style.display = 'none';
+// 	document.querySelector('.wrapper').style.display = 'flex';
+// }
+
+// // Симуляция задержки загрузки контента
+// window.addEventListener('load', function() {
+// 	setTimeout(addLoadedClass, 300); // Задержка в 1 секунду для демонстрации
 // });
-//========================================================================================================================================================
