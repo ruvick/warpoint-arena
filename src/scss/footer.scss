@@ -102,10 +102,19 @@
 	align-items: center;
 	@include adaptiveValue("width", 212, 150);
 	overflow: hidden;
+	border-radius: rem(11);
 	svg {
 		width: 100%;
 		height: 100%;
+		transition: $mainTransition;
 	}
+	// @media (any-hover: hover){
+	// 	 &:hover { 
+	// 		svg {
+	// 			transform: scale(1.03);
+	// 		} 
+	// 	} 
+	// }
 }
 .info-main-footer__feedback {
 }

@@ -672,6 +672,7 @@
 		width: 100%;
 		height: 100%;
 		background: url('../img/faq/faq-bg.svg') 0 0 no-repeat;
+		background-size: cover;
 	}
 	&::after{
 		content:''; 
@@ -760,10 +761,16 @@
 	align-items: center;
 	justify-content: center;
 	@include adaptiveValue("max-height", 60, 40);
+	transition: $mainTransition;
 	img {
 		width: 100%;
 		height: 100%;
 		overflow: hidden;
+	}
+	@media (any-hover: hover){
+		 &:hover { 
+			opacity: $opacity; 
+		} 
 	}
 }
 //========================================================================================================================================================
@@ -1169,10 +1176,12 @@
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
+		// transform: translateY(-50%) scale(0);
 		@include adaptiveValue("right", 98, 10);
 		// width: 43.5%; 
 		@include adaptiveValue("width", 422, 100);
 		height: 100%;
+		transition: transform 1s ease-in-out;
 		img {
 			width: 100%;
 			height: 100%;
@@ -1180,6 +1189,14 @@
 		}
 		@media (max-width: em(414)){
 			  display: none;
+		}
+	}
+
+	&.swiper-slide-active {
+		.slide-main-modes__img {
+			transform: translateY(-50%) rotate(-360deg);
+			// transform: translateY(-50%) scale(1);
+			
 		}
 	}
 
