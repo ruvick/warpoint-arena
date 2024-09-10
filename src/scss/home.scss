@@ -1976,6 +1976,7 @@
 
 		// .arsenal-slider__wrapper
 		&__wrapper {
+			
 		}
 	
 		// .arsenal-slider__slide
@@ -1987,7 +1988,9 @@
 
 		}
 }
-
+.arsenal-image-sl__wrapper {
+	perspective: 1000px;
+}
 .slide-arsenal {
 	display: flex;
 	flex-direction: column;
@@ -2036,9 +2039,9 @@
 	// visibility: hidden;
 	// opacity: 0;
 
-	perspective: 1000px;
+	// perspective: 1000px;
 	// width: 300px;
-	will-change: transform;
+	// will-change: transform;
 
 	&.swiper-slide-active {
 		visibility: visible;

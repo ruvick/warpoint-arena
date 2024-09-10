@@ -66,6 +66,7 @@
 		"webpack-stream": "latest"
 	},
 	"dependencies": {
+		"gsap": "^3.12.5",
 		"owl.carousel": "^2.3.4",
 		"simplebar": "latest"
 	}

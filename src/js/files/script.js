@@ -36,6 +36,7 @@ window.onload = function () {
 	}
 
 };
+//========================================================================================================================================================
 
 // Вернутся назад 
 const backButton = document.querySelector('.back-btn');
@@ -44,6 +45,21 @@ if (backButton) {
 				window.history.back();
 		});
 }
+//========================================================================================================================================================
+
+document.querySelectorAll('.arsenal-thumbs__body').forEach((arsenalThumbsBody, index) => {
+	const arsenalThumbsBtn = document.querySelectorAll('.arsenal-thumbs__btn')[index];
+
+	if (arsenalThumbsBody && arsenalThumbsBtn) {
+		arsenalThumbsBtn.addEventListener('click', () => {
+			arsenalThumbsBtn.classList.toggle('_active');
+			_slideToggle(arsenalThumbsBody);
+		});
+	}
+	if (window.innerWidth <= 1024) {
+		_slideDown(arsenalThumbsBody);
+	}
+});
 //========================================================================================================================================================
 
 // Slider Arsenal 
@@ -335,22 +351,6 @@ if (backButton) {
 // 	new BlockFollower(slide);
 // });
 //========================================================================================================================================================
-
-
-document.querySelectorAll('.arsenal-thumbs__body').forEach((arsenalThumbsBody, index) => {
-	const arsenalThumbsBtn = document.querySelectorAll('.arsenal-thumbs__btn')[index];
-
-	if (arsenalThumbsBody && arsenalThumbsBtn) {
-		arsenalThumbsBtn.addEventListener('click', () => {
-			arsenalThumbsBtn.classList.toggle('_active');
-			_slideToggle(arsenalThumbsBody);
-		});
-	}
-	if (window.innerWidth <= 1024) {
-		_slideDown(arsenalThumbsBody);
-	}
-});
-
 
 //========================================================================================================================================================
 
