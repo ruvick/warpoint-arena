@@ -308,7 +308,7 @@ function initSliders() {
 			spaceBetween: 0,
 			speed: 1500,
 			// centeredSlides: true,
-			loop: true,
+			// loop: true,
 			effect: 'fade',
 			fadeEffect: {
 				crossFade: true
@@ -316,15 +316,15 @@ function initSliders() {
 			slideToClickedSlide: true,
 			// другие настройки
 			on: {
-        slideChangeTransitionStart: function () {
-            const currentSlide = this.slides[this.activeIndex];
-            currentSlide.classList.add('animate');
-        },
-        slideChangeTransitionEnd: function () {
-            const previousSlide = this.slides[this.previousIndex];
-            previousSlide.classList.remove('animate');
-        },
-    },
+				slideChangeTransitionStart: function () {
+					const currentSlide = this.slides[this.activeIndex];
+					currentSlide.classList.add('animate');
+				},
+				slideChangeTransitionEnd: function () {
+					const previousSlide = this.slides[this.previousIndex];
+					previousSlide.classList.remove('animate');
+				},
+			},
 		});
 
 		// Инициализация основного слайдера
