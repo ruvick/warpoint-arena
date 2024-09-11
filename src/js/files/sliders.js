@@ -182,7 +182,8 @@ function initSliders() {
 			// parallax: true,
 			//touchRatio: 0,
 			//simulateTouch: false,
-			loop: true,
+			// loop: true,
+			initialSlide: 2,
 			//preloadImages: false,
 			// lazy: true,
 			// Dotts
@@ -230,72 +231,34 @@ function initSliders() {
 	}
 
 	if (document.querySelector('.popup-maps__slider')) {
-		new Swiper('.popup-maps__slider', {
-			// Подключаем модули слайдера
-			// для конкретного случая
+    const modalSlider = new Swiper('.popup-maps__slider', {
 			modules: [Navigation, Pagination],
-			/*
-			effect: 'fade',
-			autoplay: {
-				delay: 3000,
-				disableOnInteraction: false,
-			},
-			*/
 			observer: true,
 			observeParents: true,
 			slidesPerView: 1,
 			spaceBetween: 0,
-			// autoHeight: true,
 			speed: 1000,
-			// centeredSlides: true,
-			// parallax: true,
-			//touchRatio: 0,
-			//simulateTouch: false,
 			loop: true,
-			//preloadImages: false,
-			// lazy: true,
-			// Dotts
 			pagination: {
-				el: '.popup-maps__pagging',
-				clickable: true,
+					el: '.popup-maps__pagging',
+					clickable: true,
 			},
-			// Arrows
 			navigation: {
-				nextEl: '.popup-maps__buttons .slider-arrow_next',
-				prevEl: '.popup-maps__buttons .slider-arrow_prev',
+					nextEl: '.popup-maps__buttons .slider-arrow_next',
+					prevEl: '.popup-maps__buttons .slider-arrow_prev',
 			},
-			// breakpoints: {
-			// 	375: {
-			// 		slidesPerView: 1.3,
-			// 		// autoHeight: true,
-			// 	},
-			// 	480: {
-			// 		slidesPerView: 1.8,
-			// 		spaceBetween: 10,
-			// 		// autoHeight: true,
-			// 	},
-			// 	540: {
-			// 		slidesPerView: 2.3,
-			// 		spaceBetween: 10,
-			// 		// autoHeight: true,
-			// 	},
-			// 	768: {
-			// 		slidesPerView: 2.3,
-			// 		spaceBetween: 10,
-			// 	},
-			// 	992: {
-			// 		slidesPerView: 2.8,
-			// 		spaceBetween: 10,
-			// 	},
-			// 	1024: {
-			// 		slidesPerView: 3,
-			// 		spaceBetween: 17,
-			// 	},
-			// },
-			on: {
+	});
 
-			}
-		});
+	// Получаем все кнопки "Подробнее" в карточках
+	const detailButtons = document.querySelectorAll('.slide-maps-game__btn');
+
+	// Добавляем обработчик события для каждой кнопки "Подробнее"
+	detailButtons.forEach(button => {
+			button.addEventListener('click', function () {
+					const slideIndex = button.getAttribute('data-slide-index');
+					modalSlider.slideToLoop(slideIndex); // Используем slideToLoop для корректной работы с loop
+			});
+	});
 	}
 
 	if (document.querySelector('.main-modes__slider') && document.querySelector('.thumbs-images__slider')) {
@@ -308,7 +271,7 @@ function initSliders() {
 			spaceBetween: 0,
 			speed: 1500,
 			// centeredSlides: true,
-			// loop: true,
+			loop: true,
 			effect: 'fade',
 			fadeEffect: {
 				crossFade: true
@@ -316,15 +279,15 @@ function initSliders() {
 			slideToClickedSlide: true,
 			// другие настройки
 			on: {
-				slideChangeTransitionStart: function () {
-					const currentSlide = this.slides[this.activeIndex];
-					currentSlide.classList.add('animate');
-				},
-				slideChangeTransitionEnd: function () {
-					const previousSlide = this.slides[this.previousIndex];
-					previousSlide.classList.remove('animate');
-				},
-			},
+        slideChangeTransitionStart: function () {
+            const currentSlide = this.slides[this.activeIndex];
+            currentSlide.classList.add('animate');
+        },
+        slideChangeTransitionEnd: function () {
+            const previousSlide = this.slides[this.previousIndex];
+            previousSlide.classList.remove('animate');
+        },
+    },
 		});
 
 		// Инициализация основного слайдера
