@@ -1,6 +1,7 @@
 //====================================================================================================
 .header { 
-	z-index: 10;
+	min-height: 68px;
+	z-index: 1000;
 }
 .header__wrapper {
 	position: relative;
@@ -285,34 +286,34 @@
 //====================================================================================================
 
 // Анимация header scroll
-// .header {
-// 	@media (min-width: 1025px) {
-// 		transform: translateY(0);
-// 		position: fixed;
-// 		top: 0;
-// 		left: 0;
-// 		width: 100%;
-// 		transition: all 0.4s ease 0.1s;
-// 	}
-// 	&._header-scroll {
-// 		transform: translateY(-200%);
-// 		width: 100%;
-// 		background-color: #fff;
-// 		box-shadow: 0 0 rem(5) rgba(0, 0, 0, 0.5); 
-// 	}
-// 	&._header-show {
-// 		top: 0%;
-// 		transform: translateY(0);
-// 	}
-// }
+.header__wrapper {
+	@media (min-width: 1025px) {
+		transform: translateY(0);
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		transition: all 0.4s ease 0.1s;
+	}
+}
+
+.header._header-scroll .header__wrapper {
+	transform: translateY(-200%);
+	width: 100%;
+	box-shadow: 0 0 rem(5) rgba(0, 0, 0, 0.5); 
+}
+.header._header-show .header__wrapper {
+	top: 0%;
+	transform: translateY(0);
+}
 
 // Убираем скачок при блокировке 
-// .lock .header {
-// 	@media (min-width:em(1025)){
-// 		left: auto;
-// 		right: rem(3.3);
-// 	}
-// }
+.lock .header {
+	@media (min-width:em(1025)){
+		left: auto;
+		right: rem(3.3);
+	}
+}
 //========================================================================================================================================================
 
 //Burger
