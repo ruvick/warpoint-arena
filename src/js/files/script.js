@@ -81,33 +81,33 @@ document.querySelectorAll('.arsenal-thumbs__body').forEach((arsenalThumbsBody, i
 //========================================================================================================================================================
 
 // 3D Slider 
-if (!isMobile.any()) {
-	const slides = document.querySelectorAll('.slide-arsenal__img');
+// if (!isMobile.any()) {
+// 	const slides = document.querySelectorAll('.slide-arsenal__img');
 
-	if (slides.length) {
-			slides.forEach(slide => {
-					if (slide) {
-							slide.addEventListener('mousemove', (e) => {
-									const rect = slide.getBoundingClientRect();
-									const x = e.clientX - rect.left; // Положение курсора по оси X относительно слайда
-									const y = e.clientY - rect.top; // Положение курсора по оси Y относительно слайда
-									const centerX = rect.width / 2;
-									const centerY = rect.height / 2;
-									const deltaX = (x - centerX) / centerX;
-									const deltaY = (y - centerY) / centerY;
+// 	if (slides.length) {
+// 			slides.forEach(slide => {
+// 					if (slide) {
+// 							slide.addEventListener('mousemove', (e) => {
+// 									const rect = slide.getBoundingClientRect();
+// 									const x = e.clientX - rect.left; // Положение курсора по оси X относительно слайда
+// 									const y = e.clientY - rect.top; // Положение курсора по оси Y относительно слайда
+// 									const centerX = rect.width / 2;
+// 									const centerY = rect.height / 2;
+// 									const deltaX = (x - centerX) / centerX;
+// 									const deltaY = (y - centerY) / centerY;
 
-									slide.style.transform = `rotateY(${deltaX * 25}deg) rotateX(${-deltaY * 25}deg) scale(1)`;
-									slide.classList.remove('returning'); // Убираем класс возвращения при движении курсора
-							});
+// 									slide.style.transform = `rotateY(${deltaX * 25}deg) rotateX(${-deltaY * 25}deg) scale(1)`;
+// 									slide.classList.remove('returning'); // Убираем класс возвращения при движении курсора
+// 							});
 
-							slide.addEventListener('mouseleave', () => {
-									slide.classList.add('returning'); // Добавляем класс возвращения при уходе курсора
-									slide.style.transform = 'rotateY(0deg) rotateX(0deg) scale(1)';
-							});
-					}
-			});
-	}
-}
+// 							slide.addEventListener('mouseleave', () => {
+// 									slide.classList.add('returning'); // Добавляем класс возвращения при уходе курсора
+// 									slide.style.transform = 'rotateY(0deg) rotateX(0deg) scale(1)';
+// 							});
+// 					}
+// 			});
+// 	}
+// }
 //========================================================================================================================================================
 
  // Получаем элементы

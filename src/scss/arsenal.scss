@@ -14,12 +14,12 @@
 // // .images-arsenal {
 // // }
 
-:root {
-	--z-distance: 150px;
-	--from-left: 1;
-	--mobile-bkp: 650px;
-	--slider-height: 100vh;
-}
+// :root {
+// 	--z-distance: 150px;
+// 	--from-left: 1;
+// 	--mobile-bkp: 650px;
+// 	--slider-height: 100vh;
+// }
 // .slider *, 
 // .slider *::before, 
 // .slider *::after {
@@ -206,46 +206,46 @@
 // .sl-text-item-backwards p {
 // 	transition: transform 0.35s ease-in 0.35s;
 // }
-.slider__nav {
-	z-index: 9999999999999;
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: var(--slider-height);
-	text-align: center;
-	height: 75%;
-}
-.sl-nav-arrows {
-	z-index: 9999999999;
-	display: flex;
-	justify-content: space-between;
-	width: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: var(--slider-height);
-	height: 100%;
-}
-.sl-nav-arrow {
-	height: calc(var(--slider-height) - 100px);
-	width: 50vw;
-	text-indent: -9999px;
-	white-space: nowrap;
-	z-index: 999999999;
-	pointer-events: auto;
-	height: 100%;
-}
-.actions-arsenal-sl__item_prev,
-.sl-nav-arrow-left {
-	--arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 4 4'%3E %3Cpolyline points='3 1 1 2 3 3' stroke='white' stroke-width='.6' stroke-opacity='.6' fill='none'%3E%3C/polyline%3E %3C/svg%3E");
-	cursor: var(--arrow) 30 30, auto;
-}
-.actions-arsenal-sl__item_next,
-.sl-nav-arrow-right {
-	--arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 4 4'%3E %3Cpolyline points='1 1 3 2 1 3' stroke='white' stroke-width='.6' stroke-opacity='.6' fill='none'%3E%3C/polyline%3E %3C/svg%3E");
-	cursor: var(--arrow) 30 30, auto;
-}
+// .slider__nav {
+// 	z-index: 9999999999999;
+// 	position: absolute;
+// 	left: 0;
+// 	top: 0;
+// 	width: 100%;
+// 	height: var(--slider-height);
+// 	text-align: center;
+// 	height: 75%;
+// }
+// .sl-nav-arrows {
+// 	z-index: 9999999999;
+// 	display: flex;
+// 	justify-content: space-between;
+// 	width: 100%;
+// 	position: absolute;
+// 	top: 0;
+// 	left: 0;
+// 	height: var(--slider-height);
+// 	height: 100%;
+// }
+// .sl-nav-arrow {
+// 	height: calc(var(--slider-height) - 100px);
+// 	width: 50vw;
+// 	text-indent: -9999px;
+// 	white-space: nowrap;
+// 	z-index: 999999999;
+// 	pointer-events: auto;
+// 	height: 100%;
+// }
+// .actions-arsenal-sl__item_prev,
+// .sl-nav-arrow-left {
+// 	--arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 4 4'%3E %3Cpolyline points='3 1 1 2 3 3' stroke='white' stroke-width='.6' stroke-opacity='.6' fill='none'%3E%3C/polyline%3E %3C/svg%3E");
+// 	cursor: var(--arrow) 30 30, auto;
+// }
+// .actions-arsenal-sl__item_next,
+// .sl-nav-arrow-right {
+// 	--arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 4 4'%3E %3Cpolyline points='1 1 3 2 1 3' stroke='white' stroke-width='.6' stroke-opacity='.6' fill='none'%3E%3C/polyline%3E %3C/svg%3E");
+// 	cursor: var(--arrow) 30 30, auto;
+// }
 // .sl-nav-dots {
 // 	top: calc(var(--slider-height) - 80px);
 // 	display: inline-flex;

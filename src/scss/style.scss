@@ -154,7 +154,7 @@ body {
 @import "home";
 
 @import "new";
-@import "arsenal";
+// @import "arsenal";
 //========================================================================================================================================================
 
 .page {
@@ -301,7 +301,3 @@ body {
 	}
 }
 
-.preserve {
-	-webkit-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-}

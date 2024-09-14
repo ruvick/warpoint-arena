@@ -1,4 +1,4 @@
-// // import { isMobile, bodyLock, bodyUnlock, _slideToggle, _slideUp, _slideDown } from "./functions.js";
+import { isMobile } from "./functions.js";
 // import { gsap } from 'gsap'
 
 // // After update OptimizedHTML5
@@ -461,115 +461,117 @@
 // 	const slider = new Slider(sliderEl);
 // }
 
-function lerp({ x, y }, { x: targetX, y: targetY }) {
-	const fraction = 0.1;
-	x += (targetX - x) * fraction;
-	y += (targetY - y) * fraction;
-	return { x, y };
+if (!isMobile.any()) {
+	function lerp({ x, y }, { x: targetX, y: targetY }) {
+		const fraction = 0.1;
+		x += (targetX - x) * fraction;
+		y += (targetY - y) * fraction;
+		return { x, y };
+	}
+
+	class Slider {
+		constructor (el) {
+				this.el = el;
+				this.contentE0 = el.querySelector('.images-arsenal__slider');
+				this.contentEl = el.querySelector('.arsenal-slider');
+				this.onMouseMove = this.onMouseMove.bind(this);
+				this.images = el.getElementsByTagName('img');
+				window.addEventListener('resize', this.onResize.bind(this));
+				this.onResize();
+				this.lastX = this.lastY = this.targetX = this.targetY = 0;
+		}
+
+		onResize () {
+				const htmlStyles = getComputedStyle(document.documentElement);
+				const mobileBreakpoint = htmlStyles.getPropertyValue('--mobile-bkp');
+				const isMobile = this.isMobile = matchMedia(`only screen and (max-width: ${mobileBreakpoint})`).matches;
+				this.halfWidth = this.contentE0.offsetWidth / 2;
+				this.halfHeight = this.contentE0.offsetHeight / 2;
+				this.zDistance = htmlStyles.getPropertyValue('--z-distance');
+				if (!isMobile && !this.mouseWatched) {
+						this.mouseWatched = true;
+						this.el.addEventListener('mousemove', this.onMouseMove);
+						this.contentEl.style.setProperty('transform', `translateZ(${this.zDistance})`);
+				} else if (isMobile && this.mouseWatched) {
+						this.mouseWatched = false;
+						this.el.removeEventListener('mousemove', this.onMouseMove);
+						this.contentEl.style.setProperty('transform', 'none');
+				}
+		}
+
+		getMouseCoefficients ({ clientX, clientY } = {}) {
+				const halfWidth = this.halfWidth;
+				const halfHeight = this.halfHeight;
+				const xCoeff = ((clientX || this.targetX) - halfWidth) / halfWidth;
+				const yCoeff = (halfHeight - (clientY || this.targetY)) / halfHeight;
+				return { xCoeff, yCoeff }
+		}
+
+		onMouseMove ({ clientX, clientY }) {
+				this.targetX = clientX - this.contentE0.getBoundingClientRect().left;
+				this.targetY = clientY - this.contentE0.getBoundingClientRect().top;
+				if (!this.animationRunning) {
+						this.animationRunning = true;
+						this.runAnimation();
+				}
+		}
+
+		runAnimation () {
+				if (this.animationStopped) {
+						this.animationRunning = false;
+						return;
+				}
+				const maxX = 10;
+				const maxY = 10;
+				const newPos = lerp({
+						x: this.lastX,
+						y: this.lastY
+				}, {
+						x: this.targetX,
+						y: this.targetY
+				});
+				const { xCoeff, yCoeff } = this.getMouseCoefficients({
+						clientX: newPos.x,
+						clientY: newPos.y
+				});
+				this.lastX = newPos.x;
+				this.lastY = newPos.y;
+				this.positionImage({ xCoeff, yCoeff });
+				this.contentEl.style.setProperty('transform', `
+						translateZ(${this.zDistance})
+						rotateX(${maxY * yCoeff}deg)
+						rotateY(${maxX * xCoeff}deg)
+				`);
+				if (this.reachedFinalPoint) {
+						this.animationRunning = false;
+				} else {
+						requestAnimationFrame(this.runAnimation.bind(this));
+				}
+		}
+
+		get reachedFinalPoint () {
+				const lastX = ~~this.lastX;
+				const lastY = ~~this.lastY;
+				const targetX = this.targetX;
+				const targetY = this.targetY;
+				return (lastX == targetX || lastX - 1 == targetX || lastX + 1 == targetX)
+						&& (lastY == targetY || lastY - 1 == targetY || lastY + 1 == targetY);
+		}
+
+		positionImage ({ xCoeff, yCoeff }) {
+				const maxImgOffset = 1;
+				const currentImage = this.images[0];
+				if (currentImage) {
+						currentImage.style.setProperty('transform', `
+								translateX(${maxImgOffset * -xCoeff}em)
+								translateY(${maxImgOffset * yCoeff}em)
+						`);
+				}
+		}
+	}
+
+	const sliderElements = document.querySelectorAll('.images-arsenal__slider');
+	sliderElements.forEach(sliderEl => {
+		new Slider(sliderEl.closest('.tabs__body'));
+	});
 }
-
-class Slider {
-	constructor (el) {
-			this.el = el;
-			this.contentE0 = el.querySelector('.images-arsenal__slider');
-			this.contentEl = el.querySelector('.arsenal-slider');
-			this.onMouseMove = this.onMouseMove.bind(this);
-			this.images = el.getElementsByTagName('img');
-			window.addEventListener('resize', this.onResize.bind(this));
-			this.onResize();
-			this.lastX = this.lastY = this.targetX = this.targetY = 0;
-	}
-
-	onResize () {
-			const htmlStyles = getComputedStyle(document.documentElement);
-			const mobileBreakpoint = htmlStyles.getPropertyValue('--mobile-bkp');
-			const isMobile = this.isMobile = matchMedia(`only screen and (max-width: ${mobileBreakpoint})`).matches;
-			this.halfWidth = this.contentE0.offsetWidth / 2;
-			this.halfHeight = this.contentE0.offsetHeight / 2;
-			this.zDistance = htmlStyles.getPropertyValue('--z-distance');
-			if (!isMobile && !this.mouseWatched) {
-					this.mouseWatched = true;
-					this.el.addEventListener('mousemove', this.onMouseMove);
-					this.contentEl.style.setProperty('transform', `translateZ(${this.zDistance})`);
-			} else if (isMobile && this.mouseWatched) {
-					this.mouseWatched = false;
-					this.el.removeEventListener('mousemove', this.onMouseMove);
-					this.contentEl.style.setProperty('transform', 'none');
-			}
-	}
-
-	getMouseCoefficients ({ clientX, clientY } = {}) {
-			const halfWidth = this.halfWidth;
-			const halfHeight = this.halfHeight;
-			const xCoeff = ((clientX || this.targetX) - halfWidth) / halfWidth;
-			const yCoeff = (halfHeight - (clientY || this.targetY)) / halfHeight;
-			return { xCoeff, yCoeff }
-	}
-
-	onMouseMove ({ clientX, clientY }) {
-			this.targetX = clientX - this.contentE0.getBoundingClientRect().left;
-			this.targetY = clientY - this.contentE0.getBoundingClientRect().top;
-			if (!this.animationRunning) {
-					this.animationRunning = true;
-					this.runAnimation();
-			}
-	}
-
-	runAnimation () {
-			if (this.animationStopped) {
-					this.animationRunning = false;
-					return;
-			}
-			const maxX = 10;
-			const maxY = 10;
-			const newPos = lerp({
-					x: this.lastX,
-					y: this.lastY
-			}, {
-					x: this.targetX,
-					y: this.targetY
-			});
-			const { xCoeff, yCoeff } = this.getMouseCoefficients({
-					clientX: newPos.x,
-					clientY: newPos.y
-			});
-			this.lastX = newPos.x;
-			this.lastY = newPos.y;
-			this.positionImage({ xCoeff, yCoeff });
-			this.contentEl.style.setProperty('transform', `
-					translateZ(${this.zDistance})
-					rotateX(${maxY * yCoeff}deg)
-					rotateY(${maxX * xCoeff}deg)
-			`);
-			if (this.reachedFinalPoint) {
-					this.animationRunning = false;
-			} else {
-					requestAnimationFrame(this.runAnimation.bind(this));
-			}
-	}
-
-	get reachedFinalPoint () {
-			const lastX = ~~this.lastX;
-			const lastY = ~~this.lastY;
-			const targetX = this.targetX;
-			const targetY = this.targetY;
-			return (lastX == targetX || lastX - 1 == targetX || lastX + 1 == targetX)
-					&& (lastY == targetY || lastY - 1 == targetY || lastY + 1 == targetY);
-	}
-
-	positionImage ({ xCoeff, yCoeff }) {
-			const maxImgOffset = 1;
-			const currentImage = this.images[0];
-			if (currentImage) {
-					currentImage.style.setProperty('transform', `
-							translateX(${maxImgOffset * -xCoeff}em)
-							translateY(${maxImgOffset * yCoeff}em)
-					`);
-			}
-	}
-}
-
-const sliderElements = document.querySelectorAll('.images-arsenal__slider');
-sliderElements.forEach(sliderEl => {
-	new Slider(sliderEl.closest('.tabs__body'));
-});
