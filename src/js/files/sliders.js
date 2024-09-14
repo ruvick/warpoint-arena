@@ -330,60 +330,60 @@ function initSliders() {
         speed: 1000,
         loop: true,
         navigation: {
-            nextEl: '.actions-arsenal-sl__arrow-next',
-            prevEl: '.actions-arsenal-sl__arrow-prev',
+            nextEl: '.actions-arsenal-sl__item_next',
+            prevEl: '.actions-arsenal-sl__item_prev',
         },
         on: {
-            init: function () {
-                updateSlideNames(this);
-                updateActiveItems(this);
-            },
-            slideChange: function () {
-                updateSlideNames(this);
-                updateActiveItems(this);
-            },
-            slideChangeTransitionStart: function () {
-                document.querySelectorAll('.actions-arsenal-sl__item').forEach(item => {
-                    item.classList.remove('_active');
-                });
-            },
-            slideChangeTransitionEnd: function () {
-                updateActiveItems(this);
-            },
+            // init: function () {
+            //     updateSlideNames(this);
+            //     updateActiveItems(this);
+            // },
+            // slideChange: function () {
+            //     updateSlideNames(this);
+            //     updateActiveItems(this);
+            // },
+            // slideChangeTransitionStart: function () {
+            //     document.querySelectorAll('.actions-arsenal-sl__item').forEach(item => {
+            //         item.classList.remove('_active');
+            //     });
+            // },
+            // slideChangeTransitionEnd: function () {
+            //     updateActiveItems(this);
+            // },
         }
     });
 
-    function updateSlideNames(swiper) {
-        const slides = swiper.slides;
-        const totalSlides = slides.length;
+    // function updateSlideNames(swiper) {
+    //     const slides = swiper.slides;
+    //     const totalSlides = slides.length;
 
-        slides.forEach((slide, index) => {
-            const prevIndex = (index - 1 + totalSlides) % totalSlides;
-            const nextIndex = (index + 1) % totalSlides;
+    //     slides.forEach((slide, index) => {
+    //         const prevIndex = (index - 1 + totalSlides) % totalSlides;
+    //         const nextIndex = (index + 1) % totalSlides;
 
-            const prevSlideName = slides[prevIndex].querySelector('.slide-arsenal__name').textContent;
-            const nextSlideName = slides[nextIndex].querySelector('.slide-arsenal__name').textContent;
+    //         const prevSlideName = slides[prevIndex].querySelector('.slide-arsenal__name').textContent;
+    //         const nextSlideName = slides[nextIndex].querySelector('.slide-arsenal__name').textContent;
 
-            const prevNameElement = slide.querySelector('.actions-arsenal-sl__name_prev');
-            const nextNameElement = slide.querySelector('.actions-arsenal-sl__name_next');
+    //         const prevNameElement = slide.querySelector('.actions-arsenal-sl__name_prev');
+    //         const nextNameElement = slide.querySelector('.actions-arsenal-sl__name_next');
 
-            if (prevNameElement) {
-                prevNameElement.textContent = prevSlideName;
-            }
+    //         if (prevNameElement) {
+    //             prevNameElement.textContent = prevSlideName;
+    //         }
 
-            if (nextNameElement) {
-                nextNameElement.textContent = nextSlideName;
-            }
-        });
-    }
+    //         if (nextNameElement) {
+    //             nextNameElement.textContent = nextSlideName;
+    //         }
+    //     });
+    // }
 
-    function updateActiveItems(swiper) {
-        const activeSlide = swiper.slides[swiper.activeIndex];
-        const prevItem = activeSlide.querySelector('.actions-arsenal-sl__item_prev');
-        const nextItem = activeSlide.querySelector('.actions-arsenal-sl__item_next');
-        if (prevItem) prevItem.classList.add('_active');
-        if (nextItem) nextItem.classList.add('_active');
-    }
+    // function updateActiveItems(swiper) {
+    //     const activeSlide = swiper.slides[swiper.activeIndex];
+    //     const prevItem = activeSlide.querySelector('.actions-arsenal-sl__item_prev');
+    //     const nextItem = activeSlide.querySelector('.actions-arsenal-sl__item_next');
+    //     if (prevItem) prevItem.classList.add('_active');
+    //     if (nextItem) nextItem.classList.add('_active');
+    // }
 }
 
 	document.querySelectorAll('.arsenal-thumbs__slider').forEach((thumbsSlider, index) => {
