@@ -2527,23 +2527,59 @@
 	--slider-height: 100vh;
 }
 
-// .actions-arsenal-sl__item {
-// 	transition: all 0.8s ease 1s;
-// }
-// .actions-arsenal-sl__item.actions-arsenal-sl__item_prev {
-// 	opacity: 0;
-// }
-// .actions-arsenal-sl__item.actions-arsenal-sl__item_next {
-// 	opacity: 0;
-// }
-// .arsenal-slider__slide.swiper-slide-active {
-// 	.actions-arsenal-sl__item.actions-arsenal-sl__item_prev {
-// 		opacity: 1;
-// 	}
-// 	.actions-arsenal-sl__item.actions-arsenal-sl__item_next {
-// 		opacity: 1;
-// 	}
-// }
+	@media (min-width: em(1025)){
+		.actions-arsenal-sl__item {
+			transition: all 0.8s ease 0.6s;
+		}
+		.actions-arsenal-sl__item.actions-arsenal-sl__item_prev {
+			transform: translateX(-150%);
+			visibility: hidden;
+		}
+		.actions-arsenal-sl__item.actions-arsenal-sl__item_next {
+			transform: translateX(150%);
+			visibility: hidden;
+		}
+		// .arsenal-slider__slide.swiper-slide-active {
+			.actions-arsenal-sl__item.actions-arsenal-sl__item_prev._active {
+				transform: none;
+				visibility: visible;
+			}
+			.actions-arsenal-sl__item.actions-arsenal-sl__item_next._active {
+				transform: none;
+				visibility: visible;
+			}
+		
+			.slide-arsenal__body {
+				overflow: hidden;
+			}
+			.slide-arsenal__col {
+				transform: translateX(-200%);
+				visibility: hidden;
+				transition: all 0.8s ease 0.4s;
+			}
+			.slide-arsenal__col.slide-arsenal__col-info {
+				transform: translateX(200%);
+				visibility: hidden;
+			}
+			.slide-arsenal__body._active {
+				.slide-arsenal__col {
+					transform: none;
+					visibility: visible;
+				}
+				.slide-arsenal__col.slide-arsenal__col-info {
+					transform: none;
+					visibility: visible;
+				}
+			}
+		
+			.slide-arsenal__footer {
+				transform: translateY(150%);
+				transition: all 0.8s ease 0.4s;
+			}
+			.slide-arsenal__footer._active {
+				transform: none;
+			}
+	}
 
 // .slide-arsenal__img { 
 // 	transition: transform 0.1s ease; /* Плавный переход для движения курсора */
