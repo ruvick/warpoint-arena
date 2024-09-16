@@ -39,21 +39,21 @@ window.onload = function () {
 //========================================================================================================================================================
 
 // Play Film First Screen
-if (document.querySelector('.first-screen__actions')) {
-	document.querySelector('.first-screen__actions').addEventListener('click', () => {
-		if (document.querySelector('.first-screen')) {
-			document.querySelector('.first-screen').classList.add('_play');
-		}
-	});
-}
+// if (document.querySelector('.first-screen__actions')) {
+// 	document.querySelector('.first-screen__actions').addEventListener('click', () => {
+// 		if (document.querySelector('.first-screen')) {
+// 			document.querySelector('.first-screen').classList.add('_play');
+// 		}
+// 	});
+// }
 
-if (document.querySelector('.first-screen')) {
-	document.querySelector('.first-screen').addEventListener('click', (e) => {
-		if (e.target.classList.contains('_play')) {
-			e.target.classList.remove('_play');
-		}
-	});
-}
+// if (document.querySelector('.first-screen')) {
+// 	document.querySelector('.first-screen').addEventListener('click', (e) => {
+// 		if (e.target.classList.contains('_play')) {
+// 			e.target.classList.remove('_play');
+// 		}
+// 	});
+// }
 //========================================================================================================================================================
 
 // Вернутся назад 
@@ -141,12 +141,5 @@ document.querySelectorAll('.arsenal-thumbs__body').forEach((arsenalThumbsBody, i
  resizeObserver.observe(headerWrapper);
 //========================================================================================================================================================
 
-// Parallax 
-// let bg = document.querySelectorAll('.mouse-parallax');
-// for (let i = 0; i < bg.length; i++) {
-// 	window.addEventListener('mousemove', function (e) {
-// 		let x = e.clientX / window.innerWidth;
-// 		let y = e.clientY / window.innerHeight;
-// 		bg[i].style.transform = 'translate(-' + x * 50 + 'px, -' + y * 50 + 'px)';
-// 	});
-// }
+
+

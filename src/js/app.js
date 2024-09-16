@@ -64,7 +64,7 @@ flsFunctions.tabs();
 Сниппет (HTML): pl
 */
 // Для включения ??? (подсказок в консоли) передать true * /
-flsFunctions.initPopups(true);
+flsFunctions.initPopups(false);
 
 // Работа с формами ========================================================================================================================================================================================================================================================
 import * as flsForms from "./files/forms/forms.js";
@@ -76,7 +76,7 @@ flsForms.formFieldsInit();
 flsForms.formSubmit(true);
 
 /* (В работе) Работа с масками. Для включения ??? (подсказок в консоли) передать true */
-flsForms.formMasks(true);
+flsForms.formMasks(false);
 
 /* Модуль формы "колличество" */
 // flsForms.formQuantity();
@@ -142,7 +142,7 @@ import * as flsScroll from "./files/scroll/scroll.js";
 // Документация по работе в шаблоне: js/libs/watcher.js
 // Сниппет(HTML):
 // Для включения ??? (подсказок в консоли), указать параметр true
-flsScroll.scrollWatcher(true);
+flsScroll.scrollWatcher(false);
 
 // Плавная навигация по странице
 flsScroll.pageNavigation();
@@ -159,7 +159,7 @@ flsScroll.headerScroll();
 Документация плагина: https://www.lightgalleryjs.com/docs/
 Сниппет(HTML):
 */
-// import "./files/gallery.js";
+import "./files/gallery.js";
 
 // Прочее ========================================================================================================================================================================================================================================================
 /* Подключаем файлы со своим кодом */
