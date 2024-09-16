@@ -39,21 +39,21 @@ window.onload = function () {
 //========================================================================================================================================================
 
 // Play Film First Screen
-// if (document.querySelector('.first-screen__actions')) {
-// 	document.querySelector('.first-screen__actions').addEventListener('click', () => {
-// 		if (document.querySelector('.first-screen')) {
-// 			document.querySelector('.first-screen').classList.add('_play');
-// 		}
-// 	});
-// }
+if (document.querySelector('.first-screen__actions')) {
+	document.querySelector('.first-screen__actions').addEventListener('click', () => {
+		if (document.querySelector('.first-screen')) {
+			document.querySelector('.first-screen').classList.add('_play');
+		}
+	});
+}
 
-// if (document.querySelector('.first-screen')) {
-// 	document.querySelector('.first-screen').addEventListener('click', (e) => {
-// 		if (e.target.classList.contains('_play')) {
-// 			e.target.classList.remove('_play');
-// 		}
-// 	});
-// }
+if (document.querySelector('.first-screen')) {
+	document.querySelector('.first-screen').addEventListener('click', (e) => {
+		if (e.target.classList.contains('_play')) {
+			e.target.classList.remove('_play');
+		}
+	});
+}
 //========================================================================================================================================================
 
 // Вернутся назад 
